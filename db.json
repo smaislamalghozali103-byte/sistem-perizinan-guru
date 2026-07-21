@@ -1,0 +1,3208 @@
+{
+  "DATA_GURU": [
+    {
+      "NIP": "19780315007",
+      "Nama": "Ustadz Mursyid Anwar, M.Pd.",
+      "Unit": "Pondok",
+      "NoHP": "081234567899",
+      "Email": "mursyid.anwar@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Reading & Grammar",
+        "Bahasa Inggris SMP"
+      ]
+    },
+    {
+      "NIP": "19800115001",
+      "Nama": "Ustadz Ahmad Fauzi, M.Pd.",
+      "Unit": "SMA",
+      "NoHP": "081234567890",
+      "Email": "ahmad.fauzi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "19850420002",
+      "Nama": "Iswahyudin,SE",
+      "Unit": "SMP",
+      "NoHP": "081234567891",
+      "Email": "iswahyudin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "19900910003",
+      "Nama": "Ustadz Ihsan Kamil, Lc.",
+      "Unit": "TMMIA",
+      "NoHP": "081234567892",
+      "Email": "ihsan.kamil@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "19920211004",
+      "Nama": "Ustadz Anwar Sadad, S.Ag.",
+      "Unit": "SMA",
+      "NoHP": "081234567893",
+      "Email": "anwar.sadad@alghozali.sch.id",
+      "IsPiket": true,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "19880707005",
+      "Nama": "Bayu Nirvana,SH,MH",
+      "Unit": "SMP",
+      "NoHP": "081234567894",
+      "Email": "khadijah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "19910515006",
+      "Nama": "Ustadz Hamzah Fansuri, M.A.",
+      "Unit": "TMMIA",
+      "NoHP": "081234567895",
+      "Email": "hamzah.fansuri@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": []
+    },
+    {
+      "NIP": "20260000001",
+      "Nama": "ABDUL FATTAH AZZAM",
+      "Unit": "SMP",
+      "NoHP": "081274690875",
+      "Email": "abdul.fattah.azzam@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000002",
+      "Nama": "ABDUL HARIZ NAUFAL, S.Ag.",
+      "Unit": "TMMIA",
+      "NoHP": "081299098361",
+      "Email": "abdul.hariz.naufal@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Aqidah",
+        "Tajwid",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000003",
+      "Nama": "ADAM HAFIDZ, S.M",
+      "Unit": "SMA",
+      "NoHP": "081286818655",
+      "Email": "adam.hafidz@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Geografi"
+      ]
+    },
+    {
+      "NIP": "20260000004",
+      "Nama": "ADE HOLIDIN, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081227911835",
+      "Email": "ade.holidin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Shorof"
+      ]
+    },
+    {
+      "NIP": "20260000005",
+      "Nama": "ADE IHSAN FIRDAUS",
+      "Unit": "SMP",
+      "NoHP": "081247790195",
+      "Email": "ade.ihsan.firdaus@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Mahfudzat",
+        "Aqidah"
+      ]
+    },
+    {
+      "NIP": "20260000006",
+      "Nama": "AFRIZA TRI WARDANA",
+      "Unit": "SMP",
+      "NoHP": "081252100952",
+      "Email": "afriza.tri.wardana@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarikh Islam"
+      ]
+    },
+    {
+      "NIP": "20260000007",
+      "Nama": "AHDINI RAHMATILLAH, S.Si., Lc.",
+      "Unit": "TMMIA",
+      "NoHP": "081282657177",
+      "Email": "ahdini.rahmatillah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Aqidah",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000008",
+      "Nama": "AHMAD FAHRUDIN",
+      "Unit": "SMP",
+      "NoHP": "081224197689",
+      "Email": "ahmad.fahrudin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih Umum",
+        "Mahfudzat",
+        "Al-Qur'an"
+      ]
+    },
+    {
+      "NIP": "20260000009",
+      "Nama": "AHMAD FATHURACHMAN",
+      "Unit": "SMP",
+      "NoHP": "081244280053",
+      "Email": "ahmad.fathurachman@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Penjas Umum"
+      ]
+    },
+    {
+      "NIP": "20260000010",
+      "Nama": "AHMAD FAUZI RAHMAN",
+      "Unit": "TMMIA",
+      "NoHP": "081232651824",
+      "Email": "ahmad.fauzi.rahman@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000011",
+      "Nama": "AHMAD FIRDAUS, S.Ag",
+      "Unit": "SMA",
+      "NoHP": "081244362865",
+      "Email": "ahmad.firdaus@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Reading & Grammar",
+        "Bahasa Inggris SMA"
+      ]
+    },
+    {
+      "NIP": "20260000012",
+      "Nama": "AHMAD HASAN MUNJAJI",
+      "Unit": "Pondok",
+      "NoHP": "081286338908",
+      "Email": "ahmad.hasan.munjaji@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Tahfiz",
+        "Tajwid"
+      ]
+    },
+    {
+      "NIP": "20260000013",
+      "Nama": "AHMAD LUJAENILMA, S.Kom",
+      "Unit": "SMP",
+      "NoHP": "081273157868",
+      "Email": "ahmad.lujaenilma@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Informatika SMP",
+        "Informatika SMA"
+      ]
+    },
+    {
+      "NIP": "20260000014",
+      "Nama": "AHMAD SATIBI, S.Pd",
+      "Unit": "TMMIA",
+      "NoHP": "081267545504",
+      "Email": "ahmad.satibi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Nahwu"
+      ]
+    },
+    {
+      "NIP": "20260000015",
+      "Nama": "AHMAD SUKANTA, S.Pd.I",
+      "Unit": "SMP",
+      "NoHP": "081249954951",
+      "Email": "ahmad.sukanta@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Informatika SMP",
+        "Fiqih Umum",
+        "Hadis Umum"
+      ]
+    },
+    {
+      "NIP": "20260000016",
+      "Nama": "AHMAD YANI, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081218871972",
+      "Email": "ahmad.yani@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPS",
+        "Mahfudzat"
+      ]
+    },
+    {
+      "NIP": "20260000017",
+      "Nama": "AINI SYIFA, S.S",
+      "Unit": "SMP",
+      "NoHP": "081258416060",
+      "Email": "aini.syifa@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Indonesia SMP",
+        "Nahwu"
+      ]
+    },
+    {
+      "NIP": "20260000018",
+      "Nama": "ALFI NURFADILAH",
+      "Unit": "SMP",
+      "NoHP": "081258419077",
+      "Email": "alfi.nurfadilah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Matematika SMP",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000019",
+      "Nama": "ALMAAS JHOUNG ASRI",
+      "Unit": "TMMIA",
+      "NoHP": "081210566214",
+      "Email": "almaas.jhoung.asri@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA",
+        "Aqidah"
+      ]
+    },
+    {
+      "NIP": "20260000020",
+      "Nama": "AMALIA NUR FARIHA, S.Pd",
+      "Unit": "Pondok",
+      "NoHP": "081293434471",
+      "Email": "amalia.nur.fariha@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tahfiz"
+      ]
+    },
+    {
+      "NIP": "20260000021",
+      "Nama": "ANNISA SITI NABILA, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081263257614",
+      "Email": "annisa.siti.nabila@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarikh Islam",
+        "Pendidikan Pancasila SMP"
+      ]
+    },
+    {
+      "NIP": "20260000022",
+      "Nama": "ANTONI FIRDAUS, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081253766774",
+      "Email": "antoni.firdaus@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA",
+        "Pendidikan Pancasila SMA"
+      ]
+    },
+    {
+      "NIP": "20260000023",
+      "Nama": "ASEP SAEPUL MILLAH, M.Pd",
+      "Unit": "SMP",
+      "NoHP": "081264235150",
+      "Email": "asep.saepul.millah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMP",
+        "Shorof"
+      ]
+    },
+    {
+      "NIP": "20260000024",
+      "Nama": "ASEP TARUNA JAYA",
+      "Unit": "TMMIA",
+      "NoHP": "081255959988",
+      "Email": "asep.taruna.jaya@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000025",
+      "Nama": "BAYU NIRPANA, S.H",
+      "Unit": "TMMIA",
+      "NoHP": "081241977942",
+      "Email": "bayu.nirpana@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Arab",
+        "Insya",
+        "Ushul Fiqh"
+      ]
+    },
+    {
+      "NIP": "20260000026",
+      "Nama": "DAMAR ATMA ANGGORO",
+      "Unit": "TMMIA",
+      "NoHP": "081255459433",
+      "Email": "damar.atma.anggoro@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000027",
+      "Nama": "DAVA NUR PEBRIANTO, S.Pd",
+      "Unit": "TMMIA",
+      "NoHP": "081262919568",
+      "Email": "dava.nur.pebrianto@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tafsir",
+        "Nahwu",
+        "Muthola'ah",
+        "Tamrin Lughoh",
+        "Insya"
+      ]
+    },
+    {
+      "NIP": "20260000028",
+      "Nama": "DIDAH ROSYIDAH, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081275963187",
+      "Email": "didah.rosyidah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Sunda SMP",
+        "Bahasa Sunda SMA"
+      ]
+    },
+    {
+      "NIP": "20260000029",
+      "Nama": "DINDA NAAFIDA ARIFIN",
+      "Unit": "TMMIA",
+      "NoHP": "081242701883",
+      "Email": "dinda.naafida.arifin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarikh Islam",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000030",
+      "Nama": "DONI SUBIYANTO, S.E",
+      "Unit": "SMA",
+      "NoHP": "081232008242",
+      "Email": "doni.subiyanto@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Ekonomi",
+        "Geografi"
+      ]
+    },
+    {
+      "NIP": "20260000031",
+      "Nama": "EDI SANJAYA, S.Pd",
+      "Unit": "SMA",
+      "NoHP": "081298341575",
+      "Email": "edi.sanjaya@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Indonesia SMP",
+        "Bahasa Indonesia SMA"
+      ]
+    },
+    {
+      "NIP": "20260000032",
+      "Nama": "ELANG AGESTA PERKASA, S.Ag.",
+      "Unit": "TMMIA",
+      "NoHP": "081262948579",
+      "Email": "elang.agesta.perkasa@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Faroid",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000033",
+      "Nama": "ENDANG PANDAWA AGUNG, S.Pd",
+      "Unit": "Pondok",
+      "NoHP": "081269331469",
+      "Email": "endang.pandawa.agung@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tahfiz",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000034",
+      "Nama": "FADHILAH, S.Pd.I",
+      "Unit": "SMA",
+      "NoHP": "081283416362",
+      "Email": "fadhilah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Life Skill",
+        "Fiqih TMMIA",
+        "Informatika SMA",
+        "Tahfiz Umum"
+      ]
+    },
+    {
+      "NIP": "20260000035",
+      "Nama": "FADILLAH ABIDANA, S.S, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081243610001",
+      "Email": "fadillah.abidana@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Indonesia SMA",
+        "Bahasa Inggris SMA",
+        "Reading & Grammar"
+      ]
+    },
+    {
+      "NIP": "20260000036",
+      "Nama": "FAHRU ROJI MALIK",
+      "Unit": "TMMIA",
+      "NoHP": "081280416862",
+      "Email": "fahru.roji.malik@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Mahfudzat",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000037",
+      "Nama": "FIQIH KARTIKA MURNI, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081281961289",
+      "Email": "fiqih.kartika.murni@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPA / Sains Terpadu"
+      ]
+    },
+    {
+      "NIP": "20260000038",
+      "Nama": "H. ASEP SAEPUDIN, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081277128993",
+      "Email": "asep.saepudin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Indonesia SMA",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000039",
+      "Nama": "HAFIZD HIDAYAT, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081259924170",
+      "Email": "hafizd.hidayat@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMP",
+        "Life Skill"
+      ]
+    },
+    {
+      "NIP": "20260000040",
+      "Nama": "HAMMAD IYAD FAIJI",
+      "Unit": "TMMIA",
+      "NoHP": "081219746645",
+      "Email": "hammad.iyad.faiji@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tamrin Lughoh",
+        "Tajwid"
+      ]
+    },
+    {
+      "NIP": "20260000041",
+      "Nama": "HAMZAH ROBBANI, S.Sos, Lc, M.I.Kom",
+      "Unit": "TMMIA",
+      "NoHP": "081279596890",
+      "Email": "hamzah.robbani@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tafsir",
+        "Insya"
+      ]
+    },
+    {
+      "NIP": "20260000042",
+      "Nama": "Hj. BARIROTUL CHOIRIYAH, S.E.I",
+      "Unit": "SMA",
+      "NoHP": "081220017844",
+      "Email": "barirotul.choiriyah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Ekonomi",
+        "Bahasa Indonesia SMA",
+        "Geografi"
+      ]
+    },
+    {
+      "NIP": "20260000043",
+      "Nama": "ICHSANUL AFIEF, S.Sos",
+      "Unit": "TMMIA",
+      "NoHP": "081238989717",
+      "Email": "ichsanul.afief@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Arab",
+        "Shorof",
+        "Muthola'ah"
+      ]
+    },
+    {
+      "NIP": "20260000044",
+      "Nama": "ILMI MIFTAHUL JANNAH",
+      "Unit": "TMMIA",
+      "NoHP": "081221359857",
+      "Email": "ilmi.miftahul.jannah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000045",
+      "Nama": "IMAM AHMADI",
+      "Unit": "SMP",
+      "NoHP": "081293394090",
+      "Email": "imam.ahmadi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Aqidah"
+      ]
+    },
+    {
+      "NIP": "20260000046",
+      "Nama": "Ir. RAHMAWATI, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081225004136",
+      "Email": "rahmawati@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Kimia"
+      ]
+    },
+    {
+      "NIP": "20260000047",
+      "Nama": "IRMAYANTI, M.Pd",
+      "Unit": "SMP",
+      "NoHP": "081278000682",
+      "Email": "irmayanti@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMP"
+      ]
+    },
+    {
+      "NIP": "20260000048",
+      "Nama": "ISNAN APRIZAL HAFIDZ",
+      "Unit": "SMA",
+      "NoHP": "081220473693",
+      "Email": "isnan.aprizal.hafidz@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMA"
+      ]
+    },
+    {
+      "NIP": "20260000049",
+      "Nama": "ISWAHYUDDIN, S.E",
+      "Unit": "SMP",
+      "NoHP": "081260548335",
+      "Email": "iswahyuddin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPS"
+      ]
+    },
+    {
+      "NIP": "20260000050",
+      "Nama": "KHAIRIL FAHMI, S.Pd.",
+      "Unit": "SMA",
+      "NoHP": "081215816000",
+      "Email": "khairil.fahmi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarikh Islam",
+        "Tahfiz Umum",
+        "Geografi"
+      ]
+    },
+    {
+      "NIP": "20260000051",
+      "Nama": "LIYAS SYARIFUDDIN, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081230372693",
+      "Email": "liyas.syarifuddin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Sosiologi",
+        "Insya"
+      ]
+    },
+    {
+      "NIP": "20260000052",
+      "Nama": "LULU ZAHROTUNNISA, S.Pd.",
+      "Unit": "SMP",
+      "NoHP": "081214711516",
+      "Email": "lulu.zahrotunnisa@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMA",
+        "Bahasa Inggris SMP",
+        "Matematika SMP"
+      ]
+    },
+    {
+      "NIP": "20260000053",
+      "Nama": "M. ABDUL HAFIZ ANSHORY",
+      "Unit": "TMMIA",
+      "NoHP": "081280992396",
+      "Email": "m..abdul.hafiz.anshory@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000054",
+      "Nama": "M. AKBAR ALGHIFARI",
+      "Unit": "TMMIA",
+      "NoHP": "081296884305",
+      "Email": "m..akbar.alghifari@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Aqidah",
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000055",
+      "Nama": "M. ALIEF NUGRAHA",
+      "Unit": "TMMIA",
+      "NoHP": "081265970992",
+      "Email": "m..alief.nugraha@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tamrin Lughoh",
+        "Baca Tulis Qur'an (BTQ)",
+        "Bahasa Arab"
+      ]
+    },
+    {
+      "NIP": "20260000056",
+      "Nama": "M. FIKRI AL- ANSHORY",
+      "Unit": "TMMIA",
+      "NoHP": "081275952964",
+      "Email": "m..fikri.al-.anshory@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Mahfudzat",
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000057",
+      "Nama": "M. FIKRI AMRULLAH",
+      "Unit": "TMMIA",
+      "NoHP": "081288454667",
+      "Email": "m..fikri.amrullah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah"
+      ]
+    },
+    {
+      "NIP": "20260000058",
+      "Nama": "M. HASBY PUTRA",
+      "Unit": "TMMIA",
+      "NoHP": "081245987466",
+      "Email": "m..hasby.putra@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000059",
+      "Nama": "M. HIDAYATU RUSYDI, S.H",
+      "Unit": "SMA",
+      "NoHP": "081294111868",
+      "Email": "m..hidayatu.rusydi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Sejarah",
+        "Fiqih TMMIA",
+        "Antropologi"
+      ]
+    },
+    {
+      "NIP": "20260000060",
+      "Nama": "M. IRHAM AL BAIHAQI",
+      "Unit": "SMP",
+      "NoHP": "081273298912",
+      "Email": "m..irham.al.baihaqi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Tarikh Islam"
+      ]
+    },
+    {
+      "NIP": "20260000061",
+      "Nama": "M. JAELANI BASRI, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081243667838",
+      "Email": "m..jaelani.basri@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Informatika SMP",
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000062",
+      "Nama": "M. JAUHAR HAECKAL, S.HI",
+      "Unit": "SMP",
+      "NoHP": "081244565579",
+      "Email": "m..jauhar.haeckal@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Seni Budaya (SBY)"
+      ]
+    },
+    {
+      "NIP": "20260000063",
+      "Nama": "M. RAHUL SAYYID",
+      "Unit": "SMA",
+      "NoHP": "081210259211",
+      "Email": "m..rahul.sayyid@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Informatika SMA",
+        "Life Skill"
+      ]
+    },
+    {
+      "NIP": "20260000064",
+      "Nama": "M. RIFKI RIPALDI",
+      "Unit": "TMMIA",
+      "NoHP": "081210942736",
+      "Email": "m..rifki.ripaldi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000065",
+      "Nama": "M. WILDAN MAULANA, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081251956311",
+      "Email": "m..wildan.maulana@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Penjas Umum / Penjaskes",
+        "Penjas Tahfiz",
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000066",
+      "Nama": "M. YAQUB UNANG, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081217141595",
+      "Email": "m..yaqub.unang@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tafsir"
+      ]
+    },
+    {
+      "NIP": "20260000067",
+      "Nama": "MALI. S, S.Pd",
+      "Unit": "SMA",
+      "NoHP": "081266581379",
+      "Email": "mali..s@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMA"
+      ]
+    },
+    {
+      "NIP": "20260000068",
+      "Nama": "MARIA ULFA, S.S",
+      "Unit": "SMP",
+      "NoHP": "081229103159",
+      "Email": "maria.ulfa@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMP"
+      ]
+    },
+    {
+      "NIP": "20260000069",
+      "Nama": "MISBAHUL KHOIR, S.Pd",
+      "Unit": "TMMIA",
+      "NoHP": "081286104969",
+      "Email": "misbahul.khoir@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000070",
+      "Nama": "MUHAMAD MASHUR",
+      "Unit": "SMP",
+      "NoHP": "081265632452",
+      "Email": "muhamad.mashur@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Penjas Umum / Penjaskes"
+      ]
+    },
+    {
+      "NIP": "20260000071",
+      "Nama": "MUHAMMAD FARID,S.Pd.I.",
+      "Unit": "TMMIA",
+      "NoHP": "081233382275",
+      "Email": "muhammad.farid@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000072",
+      "Nama": "MUHAMMAD HANIF FAUZI, M.Pd",
+      "Unit": "TMMIA",
+      "NoHP": "081277138410",
+      "Email": "muhammad.hanif.fauzi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Insya",
+        "Balaghah",
+        "Muthola'ah",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000073",
+      "Nama": "MUHAMMAD SUHAIL, S.Pd.I",
+      "Unit": "SMA",
+      "NoHP": "081281089892",
+      "Email": "muhammad.suhail@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "PAI SMA",
+        "Fiqih Umum",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000074",
+      "Nama": "MUHAMMAD YADZKI",
+      "Unit": "TMMIA",
+      "NoHP": "081265868513",
+      "Email": "muhammad.yadzki@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Nahwu"
+      ]
+    },
+    {
+      "NIP": "20260000075",
+      "Nama": "MUHAMMAD ZUHDI FAUZI, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081216220260",
+      "Email": "muhammad.zuhdi.fauzi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Nahwu",
+        "Tarbiyah",
+        "Tamrin Lughoh"
+      ]
+    },
+    {
+      "NIP": "20260000076",
+      "Nama": "MUSLICH ANWAR, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081253173887",
+      "Email": "muslich.anwar@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Shorof",
+        "Bahasa Inggris SMA"
+      ]
+    },
+    {
+      "NIP": "20260000077",
+      "Nama": "NADRA, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081220565419",
+      "Email": "nadra@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tahfiz",
+        "Tajwid",
+        "Aqidah",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000078",
+      "Nama": "NAILUL KUNNI FUROIDA, S.Gz",
+      "Unit": "TMMIA",
+      "NoHP": "081273287942",
+      "Email": "nailul.kunni.furoida@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarbiyah",
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000079",
+      "Nama": "NAMIN NAWAWI, S.Pd.I",
+      "Unit": "SMP",
+      "NoHP": "081236196071",
+      "Email": "namin.nawawi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Al-Qur'an",
+        "PAI SMP"
+      ]
+    },
+    {
+      "NIP": "20260000080",
+      "Nama": "NAZWA YUNITA",
+      "Unit": "TMMIA",
+      "NoHP": "081273108755",
+      "Email": "nazwa.yunita@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Mahfudzat",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000081",
+      "Nama": "NOOR FAIZ",
+      "Unit": "TMMIA",
+      "NoHP": "081268769660",
+      "Email": "noor.faiz@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Khot"
+      ]
+    },
+    {
+      "NIP": "20260000082",
+      "Nama": "NUR AZIZAH, S.Pd.I",
+      "Unit": "SMP",
+      "NoHP": "081219485643",
+      "Email": "nur.azizah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "PAI SMP"
+      ]
+    },
+    {
+      "NIP": "20260000083",
+      "Nama": "NURACHMAN, M.Pd",
+      "Unit": "SMA",
+      "NoHP": "081215178655",
+      "Email": "nurachman@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMA"
+      ]
+    },
+    {
+      "NIP": "20260000084",
+      "Nama": "NURLAILA, S.Ag",
+      "Unit": "SMA",
+      "NoHP": "081265578541",
+      "Email": "nurlaila@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "PAI SMA",
+        "Fiqih TMMIA",
+        "Fiqih Umum"
+      ]
+    },
+    {
+      "NIP": "20260000085",
+      "Nama": "NURLELA, S.Ag, M.M",
+      "Unit": "SMP",
+      "NoHP": "081274169792",
+      "Email": "nurlela@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "SKI",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000086",
+      "Nama": "PADLIN, S.Pd",
+      "Unit": "SMA",
+      "NoHP": "081241414777",
+      "Email": "padlin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Biologi"
+      ]
+    },
+    {
+      "NIP": "20260000087",
+      "Nama": "PRITA FATIMAH ASRA",
+      "Unit": "SMP",
+      "NoHP": "081288675758",
+      "Email": "prita.fatimah.asra@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMP"
+      ]
+    },
+    {
+      "NIP": "20260000088",
+      "Nama": "PUTRA NAHDI ABIYYU, S.Pd. L.c.",
+      "Unit": "TMMIA",
+      "NoHP": "081266535495",
+      "Email": "putra.nahdi.abiyyu@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tafsir",
+        "Nahwu",
+        "Tahfiz",
+        "Tamrin Lughoh",
+        "Ulumul Qur'an",
+        "Tajwid"
+      ]
+    },
+    {
+      "NIP": "20260000089",
+      "Nama": "PUTRI DINAH OKTAVIA, S.Pd.",
+      "Unit": "SMP",
+      "NoHP": "081237401460",
+      "Email": "putri.dinah.oktavia@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMP",
+        "Matematika Tingkat Lanjut"
+      ]
+    },
+    {
+      "NIP": "20260000090",
+      "Nama": "PUTRI ENJELIKAL FALAH, S.E",
+      "Unit": "SMP",
+      "NoHP": "081220621257",
+      "Email": "putri.enjelikal.falah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarikh Islam"
+      ]
+    },
+    {
+      "NIP": "20260000091",
+      "Nama": "QOSIM IKHSAN, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081239081400",
+      "Email": "qosim.ikhsan@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Musthadhalah Hadits",
+        "Ulumul Qur'an"
+      ]
+    },
+    {
+      "NIP": "20260000092",
+      "Nama": "RAHMATI QURRATA AINI",
+      "Unit": "SMP",
+      "NoHP": "081213530154",
+      "Email": "rahmati.qurrata.aini@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Inggris SMP"
+      ]
+    },
+    {
+      "NIP": "20260000093",
+      "Nama": "RAMLI RIAN, M.Pd",
+      "Unit": "SMP",
+      "NoHP": "081240245748",
+      "Email": "ramli.rian@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPA / Sains Terpadu",
+        "Muthola'ah"
+      ]
+    },
+    {
+      "NIP": "20260000094",
+      "Nama": "RENDI RAMADHAN, S.Pd",
+      "Unit": "SMA",
+      "NoHP": "081296812856",
+      "Email": "rendi.ramadhan@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Pendidikan Pancasila SMA"
+      ]
+    },
+    {
+      "NIP": "20260000095",
+      "Nama": "RIDWAN YULIANTO",
+      "Unit": "TMMIA",
+      "NoHP": "081247571973",
+      "Email": "ridwan.yulianto@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tajwid",
+        "Nahwu"
+      ]
+    },
+    {
+      "NIP": "20260000096",
+      "Nama": "RIFQI RAHMATULOH",
+      "Unit": "SMP",
+      "NoHP": "081210173416",
+      "Email": "rifqi.rahmatuloh@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Informatika SMP"
+      ]
+    },
+    {
+      "NIP": "20260000097",
+      "Nama": "RISMAWATI, S.Sos.",
+      "Unit": "SMP",
+      "NoHP": "081287260362",
+      "Email": "rismawati@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Muthola'ah",
+        "Tamrin Lughoh",
+        "Sejarah"
+      ]
+    },
+    {
+      "NIP": "20260000098",
+      "Nama": "RIZAL FIRDAUS",
+      "Unit": "TMMIA",
+      "NoHP": "081257028204",
+      "Email": "rizal.firdaus@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000099",
+      "Nama": "RIZKA SYAFFITRI AMENDA",
+      "Unit": "SMP",
+      "NoHP": "081228191304",
+      "Email": "rizka.syaffitri.amenda@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Seni Budaya (SBY)"
+      ]
+    },
+    {
+      "NIP": "20260000100",
+      "Nama": "RIZKI ABDUL KHOTIB, S.Pd.I",
+      "Unit": "TMMIA",
+      "NoHP": "081236139564",
+      "Email": "rizki.abdul.khotib@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Khot",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000101",
+      "Nama": "RIZKI KAROMAH, S.Si",
+      "Unit": "SMA",
+      "NoHP": "081243702580",
+      "Email": "rizki.karomah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fisika",
+        "Matematika Tingkat Lanjut"
+      ]
+    },
+    {
+      "NIP": "20260000102",
+      "Nama": "SADAM HAMZAH, S.HI",
+      "Unit": "TMMIA",
+      "NoHP": "081276754996",
+      "Email": "sadam.hamzah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Ushul Fiqh",
+        "Nahwu",
+        "PAI SMA"
+      ]
+    },
+    {
+      "NIP": "20260000103",
+      "Nama": "SALEHA MUFIDA, S.Sos, M.Han",
+      "Unit": "SMA",
+      "NoHP": "081259986102",
+      "Email": "saleha.mufida@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Sejarah",
+        "Tamrin Lughoh",
+        "Antropologi"
+      ]
+    },
+    {
+      "NIP": "20260000104",
+      "Nama": "SALWA BINTA TSANIYAH",
+      "Unit": "TMMIA",
+      "NoHP": "081267388582",
+      "Email": "salwa.binta.tsaniyah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Mahfudzat"
+      ]
+    },
+    {
+      "NIP": "20260000105",
+      "Nama": "SATRIA NUR OKTAVIANTO",
+      "Unit": "TMMIA",
+      "NoHP": "081222130226",
+      "Email": "satria.nur.oktavianto@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Insya",
+        "Tamrin Lughoh",
+        "SKI",
+        "Baca Tulis Qur'an (BTQ)",
+        "Tahfiz Umum"
+      ]
+    },
+    {
+      "NIP": "20260000106",
+      "Nama": "SILMI SABILA",
+      "Unit": "TMMIA",
+      "NoHP": "081218130210",
+      "Email": "silmi.sabila@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla",
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000107",
+      "Nama": "SISKA INDRIYANI, S.Sos",
+      "Unit": "TMMIA",
+      "NoHP": "081222030716",
+      "Email": "siska.indriyani@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000108",
+      "Nama": "SISKA YUNITA DEWI",
+      "Unit": "TMMIA",
+      "NoHP": "081269344857",
+      "Email": "siska.yunita.dewi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tajwid",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000109",
+      "Nama": "SITI FATIMAH ZAHRA",
+      "Unit": "TMMIA",
+      "NoHP": "081221744134",
+      "Email": "siti.fatimah.zahra@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla",
+        "Aqidah",
+        "Tajwid"
+      ]
+    },
+    {
+      "NIP": "20260000110",
+      "Nama": "SITI HALIMAH, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081224466479",
+      "Email": "siti.halimah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Matematika SMP",
+        "IPA / Sains Terpadu"
+      ]
+    },
+    {
+      "NIP": "20260000111",
+      "Nama": "SITI NUR ZULFIYAH, S.Pd.I",
+      "Unit": "SMA",
+      "NoHP": "081233412715",
+      "Email": "siti.nur.zulfiyah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Sunda SMA"
+      ]
+    },
+    {
+      "NIP": "20260000112",
+      "Nama": "SOPIAN HADI, S.Pd.I",
+      "Unit": "SMP",
+      "NoHP": "081236080943",
+      "Email": "sopian.hadi@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "PAI SMP",
+        "Muthola'ah",
+        "Tamrin Lughoh",
+        "Bahasa Arab"
+      ]
+    },
+    {
+      "NIP": "20260000113",
+      "Nama": "SUBHAN, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081280368373",
+      "Email": "subhan@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPS",
+        "Sejarah",
+        "Tarikh Islam"
+      ]
+    },
+    {
+      "NIP": "20260000114",
+      "Nama": "SUMARTIN, S.Pd",
+      "Unit": "SMP",
+      "NoHP": "081285103068",
+      "Email": "sumartin@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "IPA / Sains Terpadu",
+        "Fiqih TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000115",
+      "Nama": "SYAFON OKTAVIA RAHMA",
+      "Unit": "Pondok",
+      "NoHP": "081263068433",
+      "Email": "syafon.oktavia.rahma@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla",
+        "Tahfiz"
+      ]
+    },
+    {
+      "NIP": "20260000116",
+      "Nama": "SYAHRONI",
+      "Unit": "SMP",
+      "NoHP": "081272869573",
+      "Email": "syahroni@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Hadis Umum"
+      ]
+    },
+    {
+      "NIP": "20260000117",
+      "Nama": "TIA RAHMAWATI, S.Pd.",
+      "Unit": "SMA",
+      "NoHP": "081215551734",
+      "Email": "tia.rahmawati@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Kimia"
+      ]
+    },
+    {
+      "NIP": "20260000118",
+      "Nama": "TONI, S.Pd.",
+      "Unit": "SMP",
+      "NoHP": "081292067767",
+      "Email": "toni@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Penjas Umum / Penjaskes",
+        "Muthola'ah",
+        "Penjas Tahfiz"
+      ]
+    },
+    {
+      "NIP": "20260000119",
+      "Nama": "UMAM HABIMUHTADA",
+      "Unit": "TMMIA",
+      "NoHP": "081265823598",
+      "Email": "umam.habimuhtada@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Imla"
+      ]
+    },
+    {
+      "NIP": "20260000120",
+      "Nama": "VENTI RAKHMAWATI, M.Pd",
+      "Unit": "SMP",
+      "NoHP": "081232994859",
+      "Email": "venti.rakhmawati@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Pendidikan Pancasila SMP",
+        "Tarikh Islam"
+      ]
+    },
+    {
+      "NIP": "20260000121",
+      "Nama": "VERRARY PRATAMA PUTRI S.E",
+      "Unit": "TMMIA",
+      "NoHP": "081219860387",
+      "Email": "verrary.pratama.putri.s.e@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Tarbiyah"
+      ]
+    },
+    {
+      "NIP": "20260000122",
+      "Nama": "WALDA FAUZIAH",
+      "Unit": "SMP",
+      "NoHP": "081241297098",
+      "Email": "walda.fauziah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Aqidah"
+      ]
+    },
+    {
+      "NIP": "20260000123",
+      "Nama": "WINTARSA, S.Pd.I",
+      "Unit": "SMP",
+      "NoHP": "081213075155",
+      "Email": "wintarsa@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Penjas Umum / Penjaskes"
+      ]
+    },
+    {
+      "NIP": "20260000124",
+      "Nama": "YAYAT FITRIYAH, M.Pd",
+      "Unit": "SMP",
+      "NoHP": "081271130493",
+      "Email": "yayat.fitriyah@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Bahasa Indonesia SMP"
+      ]
+    },
+    {
+      "NIP": "20260000125",
+      "Nama": "YUSUF KURNIAWAN, S.Ag",
+      "Unit": "TMMIA",
+      "NoHP": "081246740714",
+      "Email": "yusuf.kurniawan@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Hadis TMMIA"
+      ]
+    },
+    {
+      "NIP": "20260000126",
+      "Nama": "ZAINI FIKRI, S.Pd.I",
+      "Unit": "SMA",
+      "NoHP": "081232105296",
+      "Email": "zaini.fikri@alghozali.sch.id",
+      "IsPiket": false,
+      "MataPelajaran": [
+        "Reading & Grammar",
+        "Bahasa Inggris SMA"
+      ]
+    }
+  ],
+  "DATA_MAPEL": [
+    {
+      "KodeMapel": "ARA-01",
+      "NamaMapel": "Durusul Lughah (Bahasa Arab)",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "FIQ-01",
+      "NamaMapel": "Fikih Islam",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MTK-02",
+      "NamaMapel": "Matematika",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "IPA-01",
+      "NamaMapel": "Fisika",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "IPA-02",
+      "NamaMapel": "Sains Terpadu",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "TAF-01",
+      "NamaMapel": "Tafsir Jalalain",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "ENG-01",
+      "NamaMapel": "Bahasa Inggris",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "GEO-01",
+      "NamaMapel": "Geografi",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "SHO-01",
+      "NamaMapel": "Shorof",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MAF-01",
+      "NamaMapel": "Mahfudzat",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "TAR-01",
+      "NamaMapel": "Tarikh Islam",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "HAD-01",
+      "NamaMapel": "Hadis TMMIA",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "FIQ-02",
+      "NamaMapel": "Fiqih Umum",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "QUR-01",
+      "NamaMapel": "Al-Qur'an",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "PJS-01",
+      "NamaMapel": "Penjas Umum / Penjaskes",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "ENG-02",
+      "NamaMapel": "Reading & Grammar",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "TAH-01",
+      "NamaMapel": "Tahfiz",
+      "Unit": "Pondok"
+    },
+    {
+      "KodeMapel": "INF-01",
+      "NamaMapel": "Informatika SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "INF-02",
+      "NamaMapel": "Informatika SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "NAH-01",
+      "NamaMapel": "Nahwu",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "HAD-02",
+      "NamaMapel": "Hadis Umum",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "IPS-01",
+      "NamaMapel": "IPS",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "IND-01",
+      "NamaMapel": "Bahasa Indonesia SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "IND-02",
+      "NamaMapel": "Bahasa Indonesia SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "PAN-01",
+      "NamaMapel": "Pendidikan Pancasila SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "PAN-02",
+      "NamaMapel": "Pendidikan Pancasila SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "ENG-03",
+      "NamaMapel": "Bahasa Inggris SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "USF-01",
+      "NamaMapel": "Ushul Fiqh",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "IML-01",
+      "NamaMapel": "Imla",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "TAF-02",
+      "NamaMapel": "Tafsir",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "SUN-01",
+      "NamaMapel": "Bahasa Sunda SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "SUN-02",
+      "NamaMapel": "Bahasa Sunda SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "EKO-01",
+      "NamaMapel": "Ekonomi",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "FAR-01",
+      "NamaMapel": "Faroid",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "LFS-01",
+      "NamaMapel": "Life Skill",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "TAH-02",
+      "NamaMapel": "Tahfiz Umum",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "KIM-01",
+      "NamaMapel": "Kimia",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "SOS-01",
+      "NamaMapel": "Sosiologi",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "BTQ-01",
+      "NamaMapel": "Baca Tulis Qur'an (BTQ)",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "SEJ-01",
+      "NamaMapel": "Sejarah",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "ANT-01",
+      "NamaMapel": "Antropologi",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "SBY-01",
+      "NamaMapel": "Seni Budaya (SBY)",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "BAL-01",
+      "NamaMapel": "Balaghah",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "TRB-01",
+      "NamaMapel": "Tarbiyah",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "PAI-01",
+      "NamaMapel": "PAI SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "PAI-02",
+      "NamaMapel": "PAI SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "KHT-01",
+      "NamaMapel": "Khot",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "SKI-01",
+      "NamaMapel": "SKI",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "BIO-01",
+      "NamaMapel": "Biologi",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "ULQ-01",
+      "NamaMapel": "Ulumul Qur'an",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MTK-03",
+      "NamaMapel": "Matematika Tingkat Lanjut",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "MSH-01",
+      "NamaMapel": "Musthadhalah Hadits",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "PJT-01",
+      "NamaMapel": "Penjas Tahfiz",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-054",
+      "NamaMapel": "Muthola'ah",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-055",
+      "NamaMapel": "Tamrin Lughoh",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-056",
+      "NamaMapel": "Aqidah",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MP-057",
+      "NamaMapel": "Tajwid",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MP-058",
+      "NamaMapel": "Fiqih TMMIA",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MP-059",
+      "NamaMapel": "Penjas Umum",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-060",
+      "NamaMapel": "Bahasa Inggris SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeMapel": "MP-061",
+      "NamaMapel": "Matematika SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-062",
+      "NamaMapel": "Bahasa Arab",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MP-063",
+      "NamaMapel": "Insya",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeMapel": "MP-064",
+      "NamaMapel": "IPA / Sains Terpadu",
+      "Unit": "SMP"
+    },
+    {
+      "KodeMapel": "MP-065",
+      "NamaMapel": "Matematika SMA",
+      "Unit": "SMA"
+    }
+  ],
+  "DATA_KELAS": [
+    {
+      "KodeKelas": "SMP-7A",
+      "NamaKelas": "7A SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeKelas": "SMP-8A",
+      "NamaKelas": "8A SMP",
+      "Unit": "SMP"
+    },
+    {
+      "KodeKelas": "SMA-10A",
+      "NamaKelas": "X IPA SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeKelas": "SMA-11A",
+      "NamaKelas": "XI IPA SMA",
+      "Unit": "SMA"
+    },
+    {
+      "KodeKelas": "TMMIA-1",
+      "NamaKelas": "Kelas 1 TMMIA",
+      "Unit": "TMMIA"
+    },
+    {
+      "KodeKelas": "TMMIA-2",
+      "NamaKelas": "Kelas 2 TMMIA",
+      "Unit": "TMMIA"
+    }
+  ],
+  "DATA_JADWAL": [
+    {
+      "IdJadwal": "J-001",
+      "NIP": "19800115001",
+      "Hari": "Senin",
+      "JamKe": 1,
+      "KodeMapel": "MTK-01",
+      "KodeKelas": "SMA-11A"
+    },
+    {
+      "IdJadwal": "J-002",
+      "NIP": "19800115001",
+      "Hari": "Senin",
+      "JamKe": 2,
+      "KodeMapel": "MTK-01",
+      "KodeKelas": "SMA-11A"
+    },
+    {
+      "IdJadwal": "J-003",
+      "NIP": "19800115001",
+      "Hari": "Senin",
+      "JamKe": 3,
+      "KodeMapel": "MTK-01",
+      "KodeKelas": "SMA-10A"
+    },
+    {
+      "IdJadwal": "J-004",
+      "NIP": "19850420002",
+      "Hari": "Senin",
+      "JamKe": 1,
+      "KodeMapel": "IPA-02",
+      "KodeKelas": "SMP-7A"
+    },
+    {
+      "IdJadwal": "J-005",
+      "NIP": "19850420002",
+      "Hari": "Senin",
+      "JamKe": 2,
+      "KodeMapel": "IPA-02",
+      "KodeKelas": "SMP-7A"
+    },
+    {
+      "IdJadwal": "J-006",
+      "NIP": "19850420002",
+      "Hari": "Senin",
+      "JamKe": 4,
+      "KodeMapel": "MTK-02",
+      "KodeKelas": "SMP-8A"
+    },
+    {
+      "IdJadwal": "J-007",
+      "NIP": "19900910003",
+      "Hari": "Senin",
+      "JamKe": 3,
+      "KodeMapel": "ARA-01",
+      "KodeKelas": "TMMIA-1"
+    },
+    {
+      "IdJadwal": "J-008",
+      "NIP": "19900910003",
+      "Hari": "Senin",
+      "JamKe": 4,
+      "KodeMapel": "ARA-01",
+      "KodeKelas": "TMMIA-1"
+    },
+    {
+      "IdJadwal": "J-009",
+      "NIP": "19900910003",
+      "Hari": "Senin",
+      "JamKe": 5,
+      "KodeMapel": "FIQ-01",
+      "KodeKelas": "TMMIA-2"
+    },
+    {
+      "IdJadwal": "J-010",
+      "NIP": "19920211004",
+      "Hari": "Senin",
+      "JamKe": 5,
+      "KodeMapel": "ENG-01",
+      "KodeKelas": "SMA-10A"
+    },
+    {
+      "IdJadwal": "J-011",
+      "NIP": "19920211004",
+      "Hari": "Senin",
+      "JamKe": 6,
+      "KodeMapel": "ENG-01",
+      "KodeKelas": "SMA-10A"
+    },
+    {
+      "IdJadwal": "J-012",
+      "NIP": "19880707005",
+      "Hari": "Senin",
+      "JamKe": 3,
+      "KodeMapel": "MTK-02",
+      "KodeKelas": "SMP-7A"
+    },
+    {
+      "IdJadwal": "J-013",
+      "NIP": "19880707005",
+      "Hari": "Senin",
+      "JamKe": 4,
+      "KodeMapel": "MTK-02",
+      "KodeKelas": "SMP-7A"
+    },
+    {
+      "IdJadwal": "J-014",
+      "NIP": "19910515006",
+      "Hari": "Senin",
+      "JamKe": 1,
+      "KodeMapel": "TAF-01",
+      "KodeKelas": "TMMIA-2"
+    },
+    {
+      "IdJadwal": "J-015",
+      "NIP": "19910515006",
+      "Hari": "Senin",
+      "JamKe": 2,
+      "KodeMapel": "TAF-01",
+      "KodeKelas": "TMMIA-2"
+    },
+    {
+      "IdJadwal": "J-016",
+      "NIP": "19800115001",
+      "Hari": "Selasa",
+      "JamKe": 3,
+      "KodeMapel": "MTK-01",
+      "KodeKelas": "SMA-11A"
+    },
+    {
+      "IdJadwal": "J-017",
+      "NIP": "19850420002",
+      "Hari": "Selasa",
+      "JamKe": 1,
+      "KodeMapel": "IPA-02",
+      "KodeKelas": "SMP-8A"
+    },
+    {
+      "IdJadwal": "J-018",
+      "NIP": "19900910003",
+      "Hari": "Selasa",
+      "JamKe": 2,
+      "KodeMapel": "TAF-01",
+      "KodeKelas": "TMMIA-1"
+    }
+  ],
+  "DATA_IZIN": [
+    {
+      "IdIzin": "IZ-20260715-001",
+      "Tanggal": "2026-07-15",
+      "Hari": "Rabu",
+      "NIP": "19850420002",
+      "Unit": "SMP",
+      "JenisIzin": "Izin Sakit",
+      "Alasan": "Demam tinggi, disarankan dokter istirahat total selama 2 hari.",
+      "Status": "Selesai",
+      "LampiranUrl": "/uploads/surat_dokter_fatimah.pdf",
+      "LampiranNama": "surat_dokter_fatimah.pdf",
+      "CreatedAt": "2026-07-15T07:30:00.000Z"
+    },
+    {
+      "IdIzin": "IZ-20260718-001",
+      "Tanggal": "2026-07-18",
+      "Hari": "Sabtu",
+      "NIP": "19900910003",
+      "Unit": "TMMIA",
+      "JenisIzin": "Izin Kedinasan",
+      "Alasan": "Menghadiri Rapat Koordinasi Kurikulum Pondok Modern se-Jawa Barat di Bandung.",
+      "Status": "Disetujui",
+      "LampiranUrl": "/uploads/surat_tugas_ihsan.pdf",
+      "LampiranNama": "surat_tugas_ihsan.pdf",
+      "CreatedAt": "2026-07-17T10:15:00.000Z"
+    },
+    {
+      "IdIzin": "IZ-20260719-001",
+      "Tanggal": "2026-07-19",
+      "Hari": "Senin",
+      "NIP": "19800115001",
+      "Unit": "SMA",
+      "JenisIzin": "Izin Pribadi",
+      "Alasan": "Mengantar orang tua kontrol kesehatan berkala di rumah sakit rujukan.",
+      "Status": "Menunggu Persetujuan",
+      "LampiranUrl": "",
+      "LampiranNama": "",
+      "CreatedAt": "2026-07-19T06:00:00.000Z"
+    }
+  ],
+  "DATA_GURU_PENGGANTI": [
+    {
+      "IdIzin": "IZ-20260715-001",
+      "JamKe": 1,
+      "NIPOriginal": "19850420002",
+      "NIPPengganti": "19880707005",
+      "KodeKelas": "SMP-7A",
+      "KodeMapel": "IPA-02",
+      "Materi": "Suhu dan Kalor",
+      "Tugas": "Mengerjakan latihan soal halaman 45 No. 1-5",
+      "HalamanBuku": "45-46",
+      "TargetPembelajaran": "Siswa memahami perpindahan kalor secara konduksi, konveksi, dan radiasi",
+      "Instruksi": "Harap mendampingi siswa, mengumpulkan tugas di akhir jam pelajaran."
+    },
+    {
+      "IdIzin": "IZ-20260719-001",
+      "JamKe": 1,
+      "NIPOriginal": "19800115001",
+      "NIPPengganti": "19920211004",
+      "KodeKelas": "SMA-11A",
+      "KodeMapel": "MTK-01",
+      "Materi": "Persamaan Kuadrat",
+      "Tugas": "Latihan Soal Sub-bab 2.3",
+      "HalamanBuku": "72",
+      "TargetPembelajaran": "Siswa mampu menyelesaikan persamaan kuadrat dengan rumus kuadratik (abc)",
+      "Instruksi": "Bantu siswa jika ada kesulitan, pastikan kondisi kelas kondusif."
+    },
+    {
+      "IdIzin": "IZ-20260719-001",
+      "JamKe": 2,
+      "NIPOriginal": "19800115001",
+      "NIPPengganti": "19920211004",
+      "KodeKelas": "SMA-11A",
+      "KodeMapel": "MTK-01",
+      "Materi": "Fungsi Kuadrat",
+      "Tugas": "Menggambar grafik fungsi kuadrat di buku milimeter blok",
+      "HalamanBuku": "75",
+      "TargetPembelajaran": "Siswa mampu menggambar sketsa grafik fungsi kuadrat sederhana",
+      "Instruksi": "Bagikan kertas milimeter blok yang berada di lemari guru."
+    }
+  ],
+  "DATA_LOG": [
+    {
+      "IdLog": "L-008",
+      "Timestamp": "2026-07-21T15:05:28.490Z",
+      "User": "admin",
+      "Activity": "Ubah Data",
+      "Details": "Mengubah baris di DATA_GURU dengan key 19880707005"
+    },
+    {
+      "IdLog": "L-007",
+      "Timestamp": "2026-07-21T15:04:37.536Z",
+      "User": "admin",
+      "Activity": "Ubah Data",
+      "Details": "Mengubah baris di DATA_GURU dengan key 19850420002"
+    },
+    {
+      "IdLog": "L-006",
+      "Timestamp": "2026-07-21T15:02:38.314Z",
+      "User": "Mursyid",
+      "Activity": "Login",
+      "Details": "Berhasil masuk dengan peran Administrator"
+    },
+    {
+      "IdLog": "L-001",
+      "Timestamp": "2026-07-15T07:30:00.000Z",
+      "User": "fatimah",
+      "Activity": "Pengajuan Izin",
+      "Details": "Mengajukan Izin Sakit untuk tanggal 2026-07-15"
+    },
+    {
+      "IdLog": "L-002",
+      "Timestamp": "2026-07-15T08:00:00.000Z",
+      "User": "anwar",
+      "Activity": "Verifikasi Piket",
+      "Details": "Guru Piket memverifikasi perizinan IZ-20260715-001"
+    },
+    {
+      "IdLog": "L-003",
+      "Timestamp": "2026-07-15T09:00:00.000Z",
+      "User": "waka_kurikulum",
+      "Activity": "Persetujuan Waka",
+      "Details": "Waka Kurikulum menyetujui perizinan IZ-20260715-001"
+    },
+    {
+      "IdLog": "L-004",
+      "Timestamp": "2026-07-15T10:00:00.000Z",
+      "User": "kabid_pendidikan",
+      "Activity": "Persetujuan Final",
+      "Details": "Kabid Pendidikan menyetujui perizinan IZ-20260715-001 (Selesai)"
+    },
+    {
+      "IdLog": "L-005",
+      "Timestamp": "2026-07-19T06:00:00.000Z",
+      "User": "ahmad",
+      "Activity": "Pengajuan Izin",
+      "Details": "Mengajukan Izin Pribadi untuk tanggal 2026-07-19"
+    }
+  ],
+  "DATA_USER": [
+    {
+      "Username": "Mursyid",
+      "PasswordRaw": "alghozali2026",
+      "NIP": "19780315007",
+      "Role": "Administrator",
+      "Email": "mursyid.anwar@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "19800115001",
+      "Role": "Guru",
+      "Email": "ahmad.fauzi@alghozali.sch.id"
+    },
+    {
+      "Username": "fatimah",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "19850420002",
+      "Role": "Guru",
+      "Email": "fatimah.zahra@alghozali.sch.id"
+    },
+    {
+      "Username": "ihsan",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "19900910003",
+      "Role": "Guru",
+      "Email": "ihsan.kamil@alghozali.sch.id"
+    },
+    {
+      "Username": "anwar",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "19920211004",
+      "Role": "Guru Piket",
+      "Email": "anwar.sadad@alghozali.sch.id"
+    },
+    {
+      "Username": "waka",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "-",
+      "Role": "Waka Kurikulum",
+      "Email": "waka.kurikulum@alghozali.sch.id"
+    },
+    {
+      "Username": "kabid",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "-",
+      "Role": "Kepala Bidang Pendidikan",
+      "Email": "kabid.pendidikan@alghozali.sch.id"
+    },
+    {
+      "Username": "pengganti",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "19880707005",
+      "Role": "Guru Pengganti",
+      "Email": "khadijah@alghozali.sch.id"
+    },
+    {
+      "Username": "abdul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000001",
+      "Role": "Guru",
+      "Email": "abdul.fattah.azzam@alghozali.sch.id"
+    },
+    {
+      "Username": "abdul1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000002",
+      "Role": "Guru",
+      "Email": "abdul.hariz.naufal@alghozali.sch.id"
+    },
+    {
+      "Username": "adam",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000003",
+      "Role": "Guru",
+      "Email": "adam.hafidz@alghozali.sch.id"
+    },
+    {
+      "Username": "ade",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000004",
+      "Role": "Guru",
+      "Email": "ade.holidin@alghozali.sch.id"
+    },
+    {
+      "Username": "ade1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000005",
+      "Role": "Guru",
+      "Email": "ade.ihsan.firdaus@alghozali.sch.id"
+    },
+    {
+      "Username": "afriza",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000006",
+      "Role": "Guru",
+      "Email": "afriza.tri.wardana@alghozali.sch.id"
+    },
+    {
+      "Username": "ahdini",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000007",
+      "Role": "Guru",
+      "Email": "ahdini.rahmatillah@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000008",
+      "Role": "Guru",
+      "Email": "ahmad.fahrudin@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad2",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000009",
+      "Role": "Guru",
+      "Email": "ahmad.fathurachman@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad3",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000010",
+      "Role": "Guru",
+      "Email": "ahmad.fauzi.rahman@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad4",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000011",
+      "Role": "Guru",
+      "Email": "ahmad.firdaus@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad5",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000012",
+      "Role": "Guru",
+      "Email": "ahmad.hasan.munjaji@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad6",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000013",
+      "Role": "Guru",
+      "Email": "ahmad.lujaenilma@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad7",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000014",
+      "Role": "Guru",
+      "Email": "ahmad.satibi@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad8",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000015",
+      "Role": "Guru",
+      "Email": "ahmad.sukanta@alghozali.sch.id"
+    },
+    {
+      "Username": "ahmad9",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000016",
+      "Role": "Guru",
+      "Email": "ahmad.yani@alghozali.sch.id"
+    },
+    {
+      "Username": "aini",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000017",
+      "Role": "Guru",
+      "Email": "aini.syifa@alghozali.sch.id"
+    },
+    {
+      "Username": "alfi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000018",
+      "Role": "Guru",
+      "Email": "alfi.nurfadilah@alghozali.sch.id"
+    },
+    {
+      "Username": "almaas",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000019",
+      "Role": "Guru",
+      "Email": "almaas.jhoung.asri@alghozali.sch.id"
+    },
+    {
+      "Username": "amalia",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000020",
+      "Role": "Guru",
+      "Email": "amalia.nur.fariha@alghozali.sch.id"
+    },
+    {
+      "Username": "annisa",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000021",
+      "Role": "Guru",
+      "Email": "annisa.siti.nabila@alghozali.sch.id"
+    },
+    {
+      "Username": "antoni",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000022",
+      "Role": "Guru",
+      "Email": "antoni.firdaus@alghozali.sch.id"
+    },
+    {
+      "Username": "asep",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000023",
+      "Role": "Guru",
+      "Email": "asep.saepul.millah@alghozali.sch.id"
+    },
+    {
+      "Username": "asep1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000024",
+      "Role": "Guru",
+      "Email": "asep.taruna.jaya@alghozali.sch.id"
+    },
+    {
+      "Username": "bayu",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000025",
+      "Role": "Guru",
+      "Email": "bayu.nirpana@alghozali.sch.id"
+    },
+    {
+      "Username": "damar",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000026",
+      "Role": "Guru",
+      "Email": "damar.atma.anggoro@alghozali.sch.id"
+    },
+    {
+      "Username": "dava",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000027",
+      "Role": "Guru",
+      "Email": "dava.nur.pebrianto@alghozali.sch.id"
+    },
+    {
+      "Username": "didah",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000028",
+      "Role": "Guru",
+      "Email": "didah.rosyidah@alghozali.sch.id"
+    },
+    {
+      "Username": "dinda",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000029",
+      "Role": "Guru",
+      "Email": "dinda.naafida.arifin@alghozali.sch.id"
+    },
+    {
+      "Username": "doni",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000030",
+      "Role": "Guru",
+      "Email": "doni.subiyanto@alghozali.sch.id"
+    },
+    {
+      "Username": "edi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000031",
+      "Role": "Guru",
+      "Email": "edi.sanjaya@alghozali.sch.id"
+    },
+    {
+      "Username": "elang",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000032",
+      "Role": "Guru",
+      "Email": "elang.agesta.perkasa@alghozali.sch.id"
+    },
+    {
+      "Username": "endang",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000033",
+      "Role": "Guru",
+      "Email": "endang.pandawa.agung@alghozali.sch.id"
+    },
+    {
+      "Username": "fadhilah",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000034",
+      "Role": "Guru",
+      "Email": "fadhilah@alghozali.sch.id"
+    },
+    {
+      "Username": "fadillah",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000035",
+      "Role": "Guru",
+      "Email": "fadillah.abidana@alghozali.sch.id"
+    },
+    {
+      "Username": "fahru",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000036",
+      "Role": "Guru",
+      "Email": "fahru.roji.malik@alghozali.sch.id"
+    },
+    {
+      "Username": "fiqih",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000037",
+      "Role": "Guru",
+      "Email": "fiqih.kartika.murni@alghozali.sch.id"
+    },
+    {
+      "Username": "asep2",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000038",
+      "Role": "Guru",
+      "Email": "asep.saepudin@alghozali.sch.id"
+    },
+    {
+      "Username": "hafizd",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000039",
+      "Role": "Guru",
+      "Email": "hafizd.hidayat@alghozali.sch.id"
+    },
+    {
+      "Username": "hammad",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000040",
+      "Role": "Guru",
+      "Email": "hammad.iyad.faiji@alghozali.sch.id"
+    },
+    {
+      "Username": "hamzah",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000041",
+      "Role": "Guru",
+      "Email": "hamzah.robbani@alghozali.sch.id"
+    },
+    {
+      "Username": "barirotul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000042",
+      "Role": "Guru",
+      "Email": "barirotul.choiriyah@alghozali.sch.id"
+    },
+    {
+      "Username": "ichsanul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000043",
+      "Role": "Guru",
+      "Email": "ichsanul.afief@alghozali.sch.id"
+    },
+    {
+      "Username": "ilmi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000044",
+      "Role": "Guru",
+      "Email": "ilmi.miftahul.jannah@alghozali.sch.id"
+    },
+    {
+      "Username": "imam",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000045",
+      "Role": "Guru",
+      "Email": "imam.ahmadi@alghozali.sch.id"
+    },
+    {
+      "Username": "rahmawati",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000046",
+      "Role": "Guru",
+      "Email": "rahmawati@alghozali.sch.id"
+    },
+    {
+      "Username": "irmayanti",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000047",
+      "Role": "Guru",
+      "Email": "irmayanti@alghozali.sch.id"
+    },
+    {
+      "Username": "isnan",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000048",
+      "Role": "Guru",
+      "Email": "isnan.aprizal.hafidz@alghozali.sch.id"
+    },
+    {
+      "Username": "iswahyuddin",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000049",
+      "Role": "Guru",
+      "Email": "iswahyuddin@alghozali.sch.id"
+    },
+    {
+      "Username": "khairil",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000050",
+      "Role": "Guru",
+      "Email": "khairil.fahmi@alghozali.sch.id"
+    },
+    {
+      "Username": "liyas",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000051",
+      "Role": "Guru",
+      "Email": "liyas.syarifuddin@alghozali.sch.id"
+    },
+    {
+      "Username": "lulu",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000052",
+      "Role": "Guru",
+      "Email": "lulu.zahrotunnisa@alghozali.sch.id"
+    },
+    {
+      "Username": "mabdul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000053",
+      "Role": "Guru",
+      "Email": "m..abdul.hafiz.anshory@alghozali.sch.id"
+    },
+    {
+      "Username": "makbar",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000054",
+      "Role": "Guru",
+      "Email": "m..akbar.alghifari@alghozali.sch.id"
+    },
+    {
+      "Username": "malief",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000055",
+      "Role": "Guru",
+      "Email": "m..alief.nugraha@alghozali.sch.id"
+    },
+    {
+      "Username": "mfikri",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000056",
+      "Role": "Guru",
+      "Email": "m..fikri.al-.anshory@alghozali.sch.id"
+    },
+    {
+      "Username": "mfikri1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000057",
+      "Role": "Guru",
+      "Email": "m..fikri.amrullah@alghozali.sch.id"
+    },
+    {
+      "Username": "mhasby",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000058",
+      "Role": "Guru",
+      "Email": "m..hasby.putra@alghozali.sch.id"
+    },
+    {
+      "Username": "mhidayatu",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000059",
+      "Role": "Guru",
+      "Email": "m..hidayatu.rusydi@alghozali.sch.id"
+    },
+    {
+      "Username": "mirham",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000060",
+      "Role": "Guru",
+      "Email": "m..irham.al.baihaqi@alghozali.sch.id"
+    },
+    {
+      "Username": "mjaelani",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000061",
+      "Role": "Guru",
+      "Email": "m..jaelani.basri@alghozali.sch.id"
+    },
+    {
+      "Username": "mjauhar",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000062",
+      "Role": "Guru",
+      "Email": "m..jauhar.haeckal@alghozali.sch.id"
+    },
+    {
+      "Username": "mrahul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000063",
+      "Role": "Guru",
+      "Email": "m..rahul.sayyid@alghozali.sch.id"
+    },
+    {
+      "Username": "mrifki",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000064",
+      "Role": "Guru",
+      "Email": "m..rifki.ripaldi@alghozali.sch.id"
+    },
+    {
+      "Username": "mwildan",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000065",
+      "Role": "Guru",
+      "Email": "m..wildan.maulana@alghozali.sch.id"
+    },
+    {
+      "Username": "myaqub",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000066",
+      "Role": "Guru",
+      "Email": "m..yaqub.unang@alghozali.sch.id"
+    },
+    {
+      "Username": "mali",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000067",
+      "Role": "Guru",
+      "Email": "mali..s@alghozali.sch.id"
+    },
+    {
+      "Username": "maria",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000068",
+      "Role": "Guru",
+      "Email": "maria.ulfa@alghozali.sch.id"
+    },
+    {
+      "Username": "misbahul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000069",
+      "Role": "Guru",
+      "Email": "misbahul.khoir@alghozali.sch.id"
+    },
+    {
+      "Username": "muhamad",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000070",
+      "Role": "Guru",
+      "Email": "muhamad.mashur@alghozali.sch.id"
+    },
+    {
+      "Username": "muhammad",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000071",
+      "Role": "Guru",
+      "Email": "muhammad.farid@alghozali.sch.id"
+    },
+    {
+      "Username": "muhammad1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000072",
+      "Role": "Guru",
+      "Email": "muhammad.hanif.fauzi@alghozali.sch.id"
+    },
+    {
+      "Username": "muhammad2",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000073",
+      "Role": "Guru",
+      "Email": "muhammad.suhail@alghozali.sch.id"
+    },
+    {
+      "Username": "muhammad3",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000074",
+      "Role": "Guru",
+      "Email": "muhammad.yadzki@alghozali.sch.id"
+    },
+    {
+      "Username": "muhammad4",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000075",
+      "Role": "Guru",
+      "Email": "muhammad.zuhdi.fauzi@alghozali.sch.id"
+    },
+    {
+      "Username": "muslich",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000076",
+      "Role": "Guru",
+      "Email": "muslich.anwar@alghozali.sch.id"
+    },
+    {
+      "Username": "nadra",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000077",
+      "Role": "Guru",
+      "Email": "nadra@alghozali.sch.id"
+    },
+    {
+      "Username": "nailul",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000078",
+      "Role": "Guru",
+      "Email": "nailul.kunni.furoida@alghozali.sch.id"
+    },
+    {
+      "Username": "namin",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000079",
+      "Role": "Guru",
+      "Email": "namin.nawawi@alghozali.sch.id"
+    },
+    {
+      "Username": "nazwa",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000080",
+      "Role": "Guru",
+      "Email": "nazwa.yunita@alghozali.sch.id"
+    },
+    {
+      "Username": "noor",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000081",
+      "Role": "Guru",
+      "Email": "noor.faiz@alghozali.sch.id"
+    },
+    {
+      "Username": "nur",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000082",
+      "Role": "Guru",
+      "Email": "nur.azizah@alghozali.sch.id"
+    },
+    {
+      "Username": "nurachman",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000083",
+      "Role": "Guru",
+      "Email": "nurachman@alghozali.sch.id"
+    },
+    {
+      "Username": "nurlaila",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000084",
+      "Role": "Guru",
+      "Email": "nurlaila@alghozali.sch.id"
+    },
+    {
+      "Username": "nurlela",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000085",
+      "Role": "Guru",
+      "Email": "nurlela@alghozali.sch.id"
+    },
+    {
+      "Username": "padlin",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000086",
+      "Role": "Guru",
+      "Email": "padlin@alghozali.sch.id"
+    },
+    {
+      "Username": "prita",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000087",
+      "Role": "Guru",
+      "Email": "prita.fatimah.asra@alghozali.sch.id"
+    },
+    {
+      "Username": "putra",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000088",
+      "Role": "Guru",
+      "Email": "putra.nahdi.abiyyu@alghozali.sch.id"
+    },
+    {
+      "Username": "putri",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000089",
+      "Role": "Guru",
+      "Email": "putri.dinah.oktavia@alghozali.sch.id"
+    },
+    {
+      "Username": "putri1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000090",
+      "Role": "Guru",
+      "Email": "putri.enjelikal.falah@alghozali.sch.id"
+    },
+    {
+      "Username": "qosim",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000091",
+      "Role": "Guru",
+      "Email": "qosim.ikhsan@alghozali.sch.id"
+    },
+    {
+      "Username": "rahmati",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000092",
+      "Role": "Guru",
+      "Email": "rahmati.qurrata.aini@alghozali.sch.id"
+    },
+    {
+      "Username": "ramli",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000093",
+      "Role": "Guru",
+      "Email": "ramli.rian@alghozali.sch.id"
+    },
+    {
+      "Username": "rendi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000094",
+      "Role": "Guru",
+      "Email": "rendi.ramadhan@alghozali.sch.id"
+    },
+    {
+      "Username": "ridwan",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000095",
+      "Role": "Guru",
+      "Email": "ridwan.yulianto@alghozali.sch.id"
+    },
+    {
+      "Username": "rifqi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000096",
+      "Role": "Guru",
+      "Email": "rifqi.rahmatuloh@alghozali.sch.id"
+    },
+    {
+      "Username": "rismawati",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000097",
+      "Role": "Guru",
+      "Email": "rismawati@alghozali.sch.id"
+    },
+    {
+      "Username": "rizal",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000098",
+      "Role": "Guru",
+      "Email": "rizal.firdaus@alghozali.sch.id"
+    },
+    {
+      "Username": "rizka",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000099",
+      "Role": "Guru",
+      "Email": "rizka.syaffitri.amenda@alghozali.sch.id"
+    },
+    {
+      "Username": "rizki",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000100",
+      "Role": "Guru",
+      "Email": "rizki.abdul.khotib@alghozali.sch.id"
+    },
+    {
+      "Username": "rizki1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000101",
+      "Role": "Guru",
+      "Email": "rizki.karomah@alghozali.sch.id"
+    },
+    {
+      "Username": "sadam",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000102",
+      "Role": "Guru",
+      "Email": "sadam.hamzah@alghozali.sch.id"
+    },
+    {
+      "Username": "saleha",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000103",
+      "Role": "Guru",
+      "Email": "saleha.mufida@alghozali.sch.id"
+    },
+    {
+      "Username": "salwa",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000104",
+      "Role": "Guru",
+      "Email": "salwa.binta.tsaniyah@alghozali.sch.id"
+    },
+    {
+      "Username": "satria",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000105",
+      "Role": "Guru",
+      "Email": "satria.nur.oktavianto@alghozali.sch.id"
+    },
+    {
+      "Username": "silmi",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000106",
+      "Role": "Guru",
+      "Email": "silmi.sabila@alghozali.sch.id"
+    },
+    {
+      "Username": "siska",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000107",
+      "Role": "Guru",
+      "Email": "siska.indriyani@alghozali.sch.id"
+    },
+    {
+      "Username": "siska1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000108",
+      "Role": "Guru",
+      "Email": "siska.yunita.dewi@alghozali.sch.id"
+    },
+    {
+      "Username": "siti",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000109",
+      "Role": "Guru",
+      "Email": "siti.fatimah.zahra@alghozali.sch.id"
+    },
+    {
+      "Username": "siti1",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000110",
+      "Role": "Guru",
+      "Email": "siti.halimah@alghozali.sch.id"
+    },
+    {
+      "Username": "siti2",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000111",
+      "Role": "Guru",
+      "Email": "siti.nur.zulfiyah@alghozali.sch.id"
+    },
+    {
+      "Username": "sopian",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000112",
+      "Role": "Guru",
+      "Email": "sopian.hadi@alghozali.sch.id"
+    },
+    {
+      "Username": "subhan",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000113",
+      "Role": "Guru",
+      "Email": "subhan@alghozali.sch.id"
+    },
+    {
+      "Username": "sumartin",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000114",
+      "Role": "Guru",
+      "Email": "sumartin@alghozali.sch.id"
+    },
+    {
+      "Username": "syafon",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000115",
+      "Role": "Guru",
+      "Email": "syafon.oktavia.rahma@alghozali.sch.id"
+    },
+    {
+      "Username": "syahroni",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000116",
+      "Role": "Guru",
+      "Email": "syahroni@alghozali.sch.id"
+    },
+    {
+      "Username": "tia",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000117",
+      "Role": "Guru",
+      "Email": "tia.rahmawati@alghozali.sch.id"
+    },
+    {
+      "Username": "toni",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000118",
+      "Role": "Guru",
+      "Email": "toni@alghozali.sch.id"
+    },
+    {
+      "Username": "umam",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000119",
+      "Role": "Guru",
+      "Email": "umam.habimuhtada@alghozali.sch.id"
+    },
+    {
+      "Username": "venti",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000120",
+      "Role": "Guru",
+      "Email": "venti.rakhmawati@alghozali.sch.id"
+    },
+    {
+      "Username": "verrary",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000121",
+      "Role": "Guru",
+      "Email": "verrary.pratama.putri.s.e@alghozali.sch.id"
+    },
+    {
+      "Username": "walda",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000122",
+      "Role": "Guru",
+      "Email": "walda.fauziah@alghozali.sch.id"
+    },
+    {
+      "Username": "wintarsa",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000123",
+      "Role": "Guru",
+      "Email": "wintarsa@alghozali.sch.id"
+    },
+    {
+      "Username": "yayat",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000124",
+      "Role": "Guru",
+      "Email": "yayat.fitriyah@alghozali.sch.id"
+    },
+    {
+      "Username": "yusuf",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000125",
+      "Role": "Guru",
+      "Email": "yusuf.kurniawan@alghozali.sch.id"
+    },
+    {
+      "Username": "zaini",
+      "PasswordRaw": "ypialghozali2026",
+      "NIP": "20260000126",
+      "Role": "Guru",
+      "Email": "zaini.fikri@alghozali.sch.id"
+    }
+  ],
+  "DATA_APPROVAL": [
+    {
+      "IdApproval": "AP-001",
+      "IdIzin": "IZ-20260715-001",
+      "ApproverRole": "Guru Piket",
+      "ApproverName": "Ustadz Anwar Sadad, S.Ag.",
+      "Status": "Disetujui",
+      "TanggalApproval": "2026-07-15T08:00:00.000Z",
+      "Catatan": "Dokumen surat keterangan dokter valid."
+    },
+    {
+      "IdApproval": "AP-002",
+      "IdIzin": "IZ-20260715-001",
+      "ApproverRole": "Waka Kurikulum",
+      "ApproverName": "Ustadz H. Abdul Halim, Lc.",
+      "Status": "Disetujui",
+      "TanggalApproval": "2026-07-15T09:00:00.000Z",
+      "Catatan": "Disetujui. Guru pengganti sudah sesuai."
+    },
+    {
+      "IdApproval": "AP-003",
+      "IdIzin": "IZ-20260715-001",
+      "ApproverRole": "Kepala Bidang Pendidikan",
+      "ApproverName": "Dr. KH. Ghozali, M.A.",
+      "Status": "Disetujui",
+      "TanggalApproval": "2026-07-15T10:00:00.000Z",
+      "Catatan": "Semoga lekas sembuh."
+    },
+    {
+      "IdApproval": "AP-004",
+      "IdIzin": "IZ-20260718-001",
+      "ApproverRole": "Guru Piket",
+      "ApproverName": "Ustadz Anwar Sadad, S.Ag.",
+      "Status": "Disetujui",
+      "TanggalApproval": "2026-07-17T11:00:00.000Z",
+      "Catatan": "Agenda dinas pondok disetujui."
+    },
+    {
+      "IdApproval": "AP-005",
+      "IdIzin": "IZ-20260718-001",
+      "ApproverRole": "Waka Kurikulum",
+      "ApproverName": "Ustadz H. Abdul Halim, Lc.",
+      "Status": "Disetujui",
+      "TanggalApproval": "2026-07-17T14:30:00.000Z",
+      "Catatan": "Penting untuk pengembangan kurikulum."
+    }
+  ]
+}
