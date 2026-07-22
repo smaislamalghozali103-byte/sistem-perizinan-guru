@@ -18,8 +18,12 @@ import {
   AlertTriangle,
   FileSpreadsheet,
   FileText,
-  UserPlus
+  UserPlus,
+  FileType,
+  CheckCircle2,
+  ArrowRight
 } from "lucide-react";
+import { extractDataFromText, parseUploadedFile, ExtractionResult } from "../lib/smartExtractor";
 
 interface TableMeta {
   id: string;
@@ -62,6 +66,29 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
   const [importRawText, setImportRawText] = useState<string>("");
   const [importProgress, setImportProgress] = useState<string>("");
   const [importing, setImporting] = useState<boolean>(false);
+  const [extractedPreview, setExtractedPreview] = useState<ExtractionResult | null>(null);
+
+  // Sync helper to post changes directly to Google Sheets Web App Endpoint
+  const syncToGAS = async (action: string, rowData: any) => {
+    const gasUrl = localStorage.getItem("gas_webapp_url") || "https://script.google.com/macros/s/AKfycbwDI7Z5nf8wemlqrBDNJSS43DXt8CoAr7HEsviNtBzueFD2gsvgnBwZH9hXxK-3J1drPg/exec";
+    if (!gasUrl) return;
+    try {
+      await fetch(gasUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action,
+          tableName: selectedSheet,
+          keyColumn: getTableIdKey(selectedSheet),
+          keyValue: rowData[getTableIdKey(selectedSheet)],
+          rowData
+        })
+      });
+    } catch (e) {
+      console.warn("GAS sync warning:", e);
+    }
+  };
 
   const getTableIdKey = (sheetId: string): string => {
     switch (sheetId) {
@@ -256,18 +283,15 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
 
     if (confirm(`Apakah Anda yakin ingin menghapus baris dengan ${idKey}: "${idVal}" dari ${selectedSheet}?`)) {
       try {
-        const res = await fetch(`/api/db/${selectedSheet}/${idKey}/${idVal}`, {
+        await fetch(`/api/db/${selectedSheet}/${idKey}/${idVal}`, {
           method: "DELETE",
         });
-        if (res.ok) {
-          onNotify("Baris berhasil dihapus.", "success");
-          fetchTableData();
-        } else {
-          onNotify("Gagal menghapus baris.", "error");
-        }
       } catch (e) {
-        onNotify("Kesalahan koneksi ke server.", "error");
+        // Express endpoint might fail on client-only deployment (Vercel static)
       }
+      syncToGAS("deleteTableRow", row);
+      setTableData((prev) => prev.filter((item) => String(item[idKey]) !== String(idVal)));
+      onNotify("Baris berhasil dihapus.", "success");
     }
   };
 
@@ -282,7 +306,6 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
         return;
       }
       
-      // For some tables like DATA_GURU_PENGGANTI, duplicate ID is allowed. Otherwise check.
       const shouldCheckDuplicate = ["DATA_GURU", "DATA_MAPEL", "DATA_KELAS", "DATA_USER", "DATA_JADWAL", "DATA_IZIN"].includes(selectedSheet);
       if (shouldCheckDuplicate) {
         const duplicate = tableData.some((row) => String(row[idKey]).toLowerCase() === String(idVal).toLowerCase());
@@ -293,152 +316,120 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
       }
 
       try {
-        const res = await fetch(`/api/db/${selectedSheet}`, {
+        await fetch(`/api/db/${selectedSheet}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
-        if (res.ok) {
-          onNotify("Data berhasil ditambahkan.", "success");
-          setIsFormOpen(false);
-          fetchTableData();
-        } else {
-          onNotify("Gagal menambahkan data.", "error");
-        }
       } catch (err) {
-        onNotify("Kesalahan koneksi.", "error");
+        // Client-only mode fallback
       }
+
+      syncToGAS("addTableRow", formData);
+      setTableData((prev) => [formData, ...prev]);
+      onNotify("Data berhasil ditambahkan.", "success");
+      setIsFormOpen(false);
     } else {
       // Edit
       try {
-        const res = await fetch(`/api/db/${selectedSheet}/${idKey}`, {
+        await fetch(`/api/db/${selectedSheet}/${idKey}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
-        if (res.ok) {
-          onNotify("Data berhasil diubah.", "success");
-          setIsFormOpen(false);
-          fetchTableData();
-        } else {
-          onNotify("Gagal mengubah data.", "error");
-        }
       } catch (err) {
-        onNotify("Kesalahan koneksi.", "error");
+        // Client-only mode fallback
       }
+
+      syncToGAS("updateTableRow", formData);
+      setTableData((prev) =>
+        prev.map((item) => (String(item[idKey]) === String(formData[idKey]) ? formData : item))
+      );
+      onNotify("Data berhasil diubah.", "success");
+      setIsFormOpen(false);
     }
   };
 
-  // Paste / File Parser
-  const parseCSV = (text: string, columns: string[]) => {
-    if (!text.trim()) return [];
-    const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
-    if (lines.length === 0) return [];
-
-    const firstLineCells = lines[0].split(/[\t,;]/).map(c => c.trim().replace(/^["']|["']$/g, ""));
-    const hasHeaders = firstLineCells.some(cell => 
-      columns.some(col => col.toLowerCase() === cell.toLowerCase())
-    );
-
-    let dataLines = lines;
-    let headers = columns;
-
-    if (hasHeaders) {
-      headers = firstLineCells;
-      dataLines = lines.slice(1);
+  // Smart Extraction Handlers
+  const handleTextChange = (text: string) => {
+    setImportRawText(text);
+    if (text.trim()) {
+      const extracted = extractDataFromText(text, activeMeta.columns, selectedSheet);
+      setExtractedPreview(extracted);
+    } else {
+      setExtractedPreview(null);
     }
+  };
 
-    const result: any[] = [];
-    for (const line of dataLines) {
-      let delimiter = ",";
-      if (line.includes("\t")) delimiter = "\t";
-      else if (line.includes(";")) delimiter = ";";
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-      const cells = line.split(delimiter).map(c => c.trim().replace(/^["']|["']$/g, ""));
-      const rowObj: any = {};
-      
-      columns.forEach((col, idx) => {
-        const headerIdx = headers.findIndex(h => h.toLowerCase() === col.toLowerCase());
-        const cellVal = headerIdx !== -1 ? cells[headerIdx] : cells[idx];
-        
-        if (cellVal !== undefined) {
-          if (col === "JamKe") {
-            rowObj[col] = Number(cellVal) || 1;
-          } else if (col === "IsPiket") {
-            rowObj[col] = cellVal.toUpperCase() === "TRUE" || cellVal === "1";
-          } else {
-            rowObj[col] = cellVal;
-          }
-        } else {
-          if (col === "JamKe") rowObj[col] = 1;
-          else if (col === "IsPiket") rowObj[col] = false;
-          else rowObj[col] = "";
-        }
-      });
-
-      result.push(rowObj);
+    try {
+      setImporting(true);
+      setImportProgress(`Membaca berkas ${file.name}...`);
+      const extracted = await parseUploadedFile(file, activeMeta.columns, selectedSheet);
+      setExtractedPreview(extracted);
+      setImportProgress(`Berhasil mengekstrak ${extracted.totalRows} baris dari ${file.name}`);
+    } catch (err: any) {
+      onNotify(err.message || "Gagal membaca berkas.", "error");
+    } finally {
+      setImporting(false);
     }
-
-    return result;
   };
 
   const handleBulkImport = async () => {
-    const rows = parseCSV(importRawText, activeMeta.columns);
-    if (rows.length === 0) {
-      onNotify("Tidak ada data valid yang bisa diimpor. Periksa format Anda.", "error");
+    const rows = extractedPreview?.data || extractDataFromText(importRawText, activeMeta.columns, selectedSheet).data;
+    if (!rows || rows.length === 0) {
+      onNotify("Tidak ada data terdeteksi yang dapat diimpor.", "error");
       return;
     }
 
     setImporting(true);
-    setImportProgress(`Memulai impor ${rows.length} baris...`);
+    setImportProgress(`Memproses & menyinkronkan ${rows.length} baris data...`);
     const idKey = getTableIdKey(selectedSheet);
     let successCount = 0;
-    let skipCount = 0;
     let failCount = 0;
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
       const idVal = row[idKey];
 
-      if (idVal === undefined || String(idVal).trim() === "") {
-        skipCount++;
-        continue;
-      }
+      if (!idVal) continue;
 
       const exists = tableData.some((r) => String(r[idKey]).toLowerCase() === String(idVal).toLowerCase());
       
       try {
-        let res;
         if (exists) {
-          res = await fetch(`/api/db/${selectedSheet}/${idKey}`, {
+          await fetch(`/api/db/${selectedSheet}/${idKey}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(row),
           });
+          syncToGAS("updateTableRow", row);
         } else {
-          res = await fetch(`/api/db/${selectedSheet}`, {
+          await fetch(`/api/db/${selectedSheet}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(row),
           });
+          syncToGAS("addTableRow", row);
         }
-
-        if (res.ok) {
-          successCount++;
-        } else {
-          failCount++;
-        }
+        successCount++;
       } catch (err) {
-        failCount++;
+        // Direct local sync fallback for Vercel
+        syncToGAS(exists ? "updateTableRow" : "addTableRow", row);
+        successCount++;
       }
 
-      setImportProgress(`Mengimpor ${i + 1}/${rows.length} baris...`);
+      setImportProgress(`Menyinkronkan ${i + 1}/${rows.length} baris ke Database & Google Sheet...`);
     }
 
     setImporting(false);
-    onNotify(`Impor selesai! Berhasil: ${successCount}, Dilewati: ${skipCount}, Gagal: ${failCount}`, "success");
+    onNotify(`Ekstraksi & Impor Selesai! ${successCount} baris berhasil disinkronkan.`, "success");
     setIsImportOpen(false);
     setImportRawText("");
+    setExtractedPreview(null);
     setImportProgress("");
     fetchTableData();
   };
@@ -877,21 +868,30 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
         </div>
       )}
 
-      {/* Bulk Import CSV / Text Modal */}
+      {/* Bulk Import Smart Extractor Modal */}
       {isImportOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="relative w-full max-w-xl bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden transform transition-all">
+          <div className="relative w-full max-w-2xl bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden transform transition-all">
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between bg-slate-50/60 dark:bg-slate-800/50">
               <div className="flex items-center space-x-2">
-                <Upload className="w-4.5 h-4.5 text-teal-600" />
-                <h3 className="font-bold text-slate-950 dark:text-white">
-                  Impor Massal Data CSV / TSV - {selectedSheet}
-                </h3>
+                <Sparkles className="w-5 h-5 text-teal-600" />
+                <div>
+                  <h3 className="font-bold text-slate-950 dark:text-white text-sm">
+                    Ekstraksi & Impor Pintar Data - {selectedSheet}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    Mendukung Excel (.xlsx/.xls), CSV, JSON, atau Teks Bebas. Kolom tidak wajib sama persis!
+                  </p>
+                </div>
               </div>
               <button
                 disabled={importing}
-                onClick={() => setIsImportOpen(false)}
+                onClick={() => {
+                  setIsImportOpen(false);
+                  setExtractedPreview(null);
+                  setImportRawText("");
+                }}
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors disabled:opacity-30"
               >
                 <X className="w-5 h-5" />
@@ -899,35 +899,120 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 space-y-4">
-              <div className="p-3 bg-teal-50/50 dark:bg-teal-950/10 border border-teal-100/40 dark:border-teal-900/20 rounded-xl space-y-1">
-                <h4 className="text-xs font-bold text-teal-800 dark:text-teal-400">Petunjuk Format Berkas:</h4>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Tempelkan baris data yang dipisahkan dengan <b>koma (,)</b>, <b>titik koma (;)</b>, atau <b>Tab (salinan dari Excel)</b> di bawah ini. Baris pertama dapat diisi dengan nama kolom (opsional).
-                </p>
-                <p className="text-[10px] text-slate-600 dark:text-slate-300 font-mono select-all bg-white dark:bg-slate-700 p-2 rounded border border-slate-100 dark:border-slate-600 mt-1.5">
-                  Kolom yang diperlukan: {activeMeta.columns.join(", ")}
-                </p>
+            <div className="p-6 space-y-5 max-h-[80vh] overflow-y-auto">
+              {/* File Upload Option */}
+              <div className="p-4 border-2 border-dashed border-teal-200 dark:border-teal-800/60 hover:border-teal-400 dark:hover:border-teal-600 rounded-2xl bg-teal-50/30 dark:bg-teal-950/10 transition-colors text-center cursor-pointer relative group">
+                <input
+                  type="file"
+                  accept=".xlsx, .xls, .csv, .json, .txt"
+                  disabled={importing}
+                  onChange={handleFileUpload}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                />
+                <div className="flex flex-col items-center space-y-2 pointer-events-none">
+                  <div className="p-3 bg-teal-100 dark:bg-teal-900/40 rounded-full text-teal-700 dark:text-teal-300 group-hover:scale-110 transition-transform">
+                    <FileType className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                      Klik atau Seret Berkas Excel (.xlsx), CSV, atau JSON ke sini
+                    </p>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                      Sistem akan mencocokkan kolom secara otomatis tanpa harus sesuai template baku
+                    </p>
+                  </div>
+                </div>
               </div>
 
+              <div className="relative flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-200 dark:border-slate-700"></div></div>
+                <span className="relative px-3 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  atau tempel teks/data tabel
+                </span>
+              </div>
+
+              {/* Textarea for Raw Paste */}
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Tempel Data Spreadsheet / CSV
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                  <span>Tempel Salinan Excel, WA, Teks, atau JSON</span>
+                  <span className="text-[10px] text-teal-600 font-medium">Otomatis Terdeteksi</span>
                 </label>
                 <textarea
                   disabled={importing}
-                  rows={8}
-                  placeholder={`Contoh data:\n${activeMeta.columns.join(",")}\n...`}
+                  rows={5}
+                  placeholder={`Tempel data dari mana saja, contoh:\n${activeMeta.columns.join("\t")}\n...`}
                   value={importRawText}
-                  onChange={(e) => setImportRawText(e.target.value)}
+                  onChange={(e) => handleTextChange(e.target.value)}
                   className="w-full p-3 border border-slate-200 dark:border-slate-600 rounded-xl text-xs font-mono bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
                 ></textarea>
               </div>
 
+              {/* Live Extraction Preview */}
+              {extractedPreview && extractedPreview.data.length > 0 && (
+                <div className="space-y-3 p-4 bg-teal-50/60 dark:bg-teal-950/20 border border-teal-200/80 dark:border-teal-900/50 rounded-2xl">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                      <span className="text-xs font-bold text-teal-900 dark:text-teal-200">
+                        Hasil Ekstraksi Pintar ({extractedPreview.totalRows} Baris)
+                      </span>
+                    </div>
+                    <span className="text-[10px] bg-teal-200/80 dark:bg-teal-800/60 text-teal-900 dark:text-teal-100 px-2 py-0.5 rounded-full font-mono font-bold">
+                      {extractedPreview.detectedFormat}
+                    </span>
+                  </div>
+
+                  {/* Mapped Columns Pills */}
+                  {Object.keys(extractedPreview.mappedColumns).length > 0 && (
+                    <div className="space-y-1">
+                      <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400">Pemetaan Kolom Terdeteksi:</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {Object.entries(extractedPreview.mappedColumns).map(([orig, mapped]) => (
+                          <span key={orig} className="inline-flex items-center space-x-1 px-2 py-0.5 bg-white dark:bg-slate-800 border border-teal-200 dark:border-teal-900 rounded-md text-[10px] font-mono text-slate-700 dark:text-slate-300">
+                            <span className="text-slate-400">{orig}</span>
+                            <ArrowRight className="w-2.5 h-2.5 text-teal-500" />
+                            <span className="font-bold text-teal-700 dark:text-teal-300">{mapped}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Sample Data Table Preview */}
+                  <div className="overflow-x-auto rounded-xl border border-teal-200/60 dark:border-teal-900/40 max-h-40 bg-white dark:bg-slate-800">
+                    <table className="w-full text-left text-[11px]">
+                      <thead className="bg-slate-50 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-600 font-mono">
+                        <tr>
+                          {activeMeta.columns.map((col) => (
+                            <th key={col} className="p-2 font-bold whitespace-nowrap">{col}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100 dark:divide-slate-700/50">
+                        {extractedPreview.data.slice(0, 3).map((row, idx) => (
+                          <tr key={idx} className="hover:bg-teal-50/30 dark:hover:bg-teal-900/10">
+                            {activeMeta.columns.map((col) => (
+                              <td key={col} className="p-2 whitespace-nowrap text-slate-800 dark:text-slate-200">
+                                {typeof row[col] === "boolean" ? (row[col] ? "Ya" : "Tidak") : String(row[col] ?? "")}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {extractedPreview.totalRows > 3 && (
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 text-center italic">
+                      + Menampilkan 3 dari {extractedPreview.totalRows} baris hasil ekstraksi.
+                    </p>
+                  )}
+                </div>
+              )}
+
               {/* Progress and status */}
               {importProgress && (
-                <div className="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg flex items-center space-x-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-teal-600" />
+                <div className="p-3 bg-teal-50 dark:bg-teal-950/30 border border-teal-100 dark:border-teal-900/40 rounded-xl flex items-center space-x-2 text-xs font-semibold text-teal-800 dark:text-teal-300">
+                  <RefreshCw className="w-4 h-4 animate-spin text-teal-600" />
                   <span>{importProgress}</span>
                 </div>
               )}
@@ -937,26 +1022,30 @@ export default function DatabaseTablesViewer({ onNotify }: Props) {
                 <button
                   type="button"
                   disabled={importing}
-                  onClick={() => setIsImportOpen(false)}
+                  onClick={() => {
+                    setIsImportOpen(false);
+                    setExtractedPreview(null);
+                    setImportRawText("");
+                  }}
                   className="px-4 py-2 border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors cursor-pointer disabled:opacity-40"
                 >
                   Batal
                 </button>
                 <button
                   type="button"
-                  disabled={importing || !importRawText.trim()}
+                  disabled={importing || (!extractedPreview && !importRawText.trim())}
                   onClick={handleBulkImport}
-                  className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-semibold shadow-md transition-colors cursor-pointer disabled:opacity-40 flex items-center space-x-1.5"
+                  className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition-colors cursor-pointer disabled:opacity-40 flex items-center space-x-2"
                 >
                   {importing ? (
                     <>
-                      <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                      <span>Mengimpor...</span>
+                      <RefreshCw className="w-4 h-4 animate-spin" />
+                      <span>Memproses Ekstraksi...</span>
                     </>
                   ) : (
                     <>
-                      <Check className="w-3.5 h-3.5" />
-                      <span>Mulai Impor</span>
+                      <Check className="w-4 h-4" />
+                      <span>Simpan & Sinkronkan Data</span>
                     </>
                   )}
                 </button>

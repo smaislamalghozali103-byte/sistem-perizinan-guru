@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "Guru": {
+      "title": "Data Guru",
+      "description": "Data profil guru dan staf pengajar",
+      "type": "object",
+      "properties": {
+        "NIP": { "type": "string" },
+        "Nama": { "type": "string" },
+        "Unit": { "type": "string" },
+        "NoHP": { "type": "string" },
+        "Email": { "type": "string" },
+        "IsPiket": { "type": "boolean" },
+        "MataPelajaran": { "type": "array" }
+      },
+      "required": ["NIP", "Nama"]
+    },
+    "Mapel": {
+      "title": "Data Mata Pelajaran",
+      "description": "Mata pelajaran sekolah",
+      "type": "object",
+      "properties": {
+        "KodeMapel": { "type": "string" },
+        "NamaMapel": { "type": "string" },
+        "Unit": { "type": "string" }
+      },
+      "required": ["KodeMapel", "NamaMapel"]
+    },
+    "Kelas": {
+      "title": "Data Kelas",
+      "description": "Daftar kelas dan rombel",
+      "type": "object",
+      "properties": {
+        "KodeKelas": { "type": "string" },
+        "NamaKelas": { "type": "string" },
+        "Unit": { "type": "string" }
+      },
+      "required": ["KodeKelas", "NamaKelas"]
+    },
+    "Jadwal": {
+      "title": "Data Jadwal Mengajar",
+      "description": "Jadwal pelajaran guru",
+      "type": "object",
+      "properties": {
+        "IdJadwal": { "type": "string" },
+        "NIP": { "type": "string" },
+        "Hari": { "type": "string" },
+        "JamKe": { "type": "number" },
+        "KodeMapel": { "type": "string" },
+        "KodeKelas": { "type": "string" }
+      },
+      "required": ["IdJadwal", "NIP"]
+    },
+    "Izin": {
+      "title": "Data Izin & Presensi Guru",
+      "description": "Pengajuan izin meninggalkan tugas",
+      "type": "object",
+      "properties": {
+        "IdIzin": { "type": "string" },
+        "Tanggal": { "type": "string" },
+        "Hari": { "type": "string" },
+        "NIP": { "type": "string" },
+        "Unit": { "type": "string" },
+        "JenisIzin": { "type": "string" },
+        "Alasan": { "type": "string" },
+        "Status": { "type": "string" },
+        "LampiranUrl": { "type": "string" },
+        "LampiranNama": { "type": "string" },
+        "CreatedAt": { "type": "string" }
+      },
+      "required": ["IdIzin", "NIP"]
+    },
+    "GuruPengganti": {
+      "title": "Data Guru Pengganti",
+      "description": "Penugasan guru pengganti piket",
+      "type": "object",
+      "properties": {
+        "IdIzin": { "type": "string" },
+        "JamKe": { "type": "number" },
+        "NIPOriginal": { "type": "string" },
+        "NIPPengganti": { "type": "string" },
+        "KodeKelas": { "type": "string" },
+        "KodeMapel": { "type": "string" },
+        "Materi": { "type": "string" },
+        "Tugas": { "type": "string" },
+        "HalamanBuku": { "type": "string" },
+        "TargetPembelajaran": { "type": "string" },
+        "Instruksi": { "type": "string" }
+      },
+      "required": ["IdIzin", "JamKe"]
+    },
+    "Log": {
+      "title": "Data Log Aktivitas",
+      "description": "Catatan aktivitas sistem",
+      "type": "object",
+      "properties": {
+        "IdLog": { "type": "string" },
+        "Timestamp": { "type": "string" },
+        "User": { "type": "string" },
+        "Activity": { "type": "string" },
+        "Details": { "type": "string" }
+      },
+      "required": ["IdLog"]
+    },
+    "User": {
+      "title": "Data Pengguna",
+      "description": "Akun dan peran sistem",
+      "type": "object",
+      "properties": {
+        "Username": { "type": "string" },
+        "PasswordRaw": { "type": "string" },
+        "NIP": { "type": "string" },
+        "Role": { "type": "string" },
+        "Email": { "type": "string" }
+      },
+      "required": ["Username", "Role"]
+    },
+    "Approval": {
+      "title": "Data Persetujuan",
+      "description": "Riwayat persetujuan izin",
+      "type": "object",
+      "properties": {
+        "IdApproval": { "type": "string" },
+        "IdIzin": { "type": "string" },
+        "ApproverRole": { "type": "string" },
+        "ApproverName": { "type": "string" },
+        "Status": { "type": "string" },
+        "TanggalApproval": { "type": "string" },
+        "Catatan": { "type": "string" }
+      },
+      "required": ["IdApproval", "IdIzin"]
+    },
+    "Presensi": {
+      "title": "Data Presensi Guru",
+      "description": "Catatan kehadiran harian",
+      "type": "object",
+      "properties": {
+        "IdPresensi": { "type": "string" },
+        "NIP": { "type": "string" },
+        "NamaGuru": { "type": "string" },
+        "Unit": { "type": "string" },
+        "Tanggal": { "type": "string" },
+        "WaktuMasuk": { "type": "string" },
+        "StatusHadir": { "type": "string" },
+        "PetugasPiket": { "type": "string" },
+        "Lokasi": { "type": "string" },
+        "Catatan": { "type": "string" }
+      },
+      "required": ["IdPresensi", "NIP"]
+    }
+  },
+  "firestore": {
+    "/DATA_GURU/{guruId}": { "schema": { "$ref": "#/entities/Guru" }, "description": "Koleksi data guru" },
+    "/DATA_MAPEL/{mapelId}": { "schema": { "$ref": "#/entities/Mapel" }, "description": "Koleksi data mapel" },
+    "/DATA_KELAS/{kelasId}": { "schema": { "$ref": "#/entities/Kelas" }, "description": "Koleksi data kelas" },
+    "/DATA_JADWAL/{jadwalId}": { "schema": { "$ref": "#/entities/Jadwal" }, "description": "Koleksi data jadwal" },
+    "/DATA_IZIN/{izinId}": { "schema": { "$ref": "#/entities/Izin" }, "description": "Koleksi data izin" },
+    "/DATA_GURU_PENGGANTI/{penggantiId}": { "schema": { "$ref": "#/entities/GuruPengganti" }, "description": "Koleksi data guru pengganti" },
+    "/DATA_LOG/{logId}": { "schema": { "$ref": "#/entities/Log" }, "description": "Koleksi log aktivitas" },
+    "/DATA_USER/{userId}": { "schema": { "$ref": "#/entities/User" }, "description": "Koleksi pengguna" },
+    "/DATA_APPROVAL/{approvalId}": { "schema": { "$ref": "#/entities/Approval" }, "description": "Koleksi approval" },
+    "/DATA_PRESENSI/{presensiId}": { "schema": { "$ref": "#/entities/Presensi" }, "description": "Koleksi presensi" }
+  }
+}
