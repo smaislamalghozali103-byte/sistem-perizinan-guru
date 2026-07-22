@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { QRCodeSVG } from "qrcode.react";
 import {
   User,
   Phone,
@@ -12,7 +13,8 @@ import {
   Smartphone,
   IdCard,
   Lock,
-  Settings
+  Settings,
+  QrCode
 } from "lucide-react";
 import { SessionUser, Guru } from "../types";
 
@@ -358,6 +360,36 @@ export default function MyProfile({
               </div>
             </div>
           </div>
+
+          {/* Digital QR Presensi Card */}
+          {hasLinkedTeacher && (
+            <div className="mt-5 w-full bg-slate-900 text-white rounded-2xl p-4 border border-slate-800 space-y-3">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300 font-mono flex items-center space-x-1">
+                  <QrCode className="w-3.5 h-3.5" />
+                  <span>QR Presensi Saya</span>
+                </span>
+                <span className="text-[9px] text-slate-400 font-mono">Gerbang Al-Ghozali</span>
+              </div>
+
+              <div className="p-3 bg-white rounded-xl flex items-center justify-center">
+                <QRCodeSVG
+                  value={JSON.stringify({
+                    nip: teacher.NIP,
+                    nama: teacher.Nama,
+                    unit: teacher.Unit,
+                    type: "ALGHOZALI_GURU_ID"
+                  })}
+                  size={120}
+                  level="H"
+                />
+              </div>
+
+              <p className="text-[10px] text-slate-300 text-center font-mono">
+                Tunjukkan QR Code ini kepada Guru Piket di gerbang utama untuk pencatatan presensi otomatis.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Right Side: Profile Details Form */}

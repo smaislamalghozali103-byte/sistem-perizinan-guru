@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
 import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
+import {
   Users,
   BookOpen,
   UserCheck,
@@ -105,10 +118,101 @@ export default function AdminDashboard({
   const rejectedPermitsCount = izinList.filter((i) => i.Status === "Ditolak").length;
   const draftPermitsCount = izinList.filter((i) => i.Status === "Draft").length;
 
-  // Breakdown by Permit Types
-  const typeSakit = izinList.filter((i) => i.JenisIzin === "Izin Sakit").length;
+  // Breakdown by Permit Types (Sakit, Izin, Cuti)
+  const typeSakit = izinList.filter((i) =>
+    (i.JenisIzin as string).toLowerCase().includes("sakit")
+  ).length;
   const typeDinas = izinList.filter((i) => i.JenisIzin === "Izin Kedinasan").length;
   const typePribadi = izinList.filter((i) => i.JenisIzin === "Izin Pribadi").length;
+  const typeIzinCombined =
+    typeDinas +
+    typePribadi +
+    izinList.filter(
+      (i) =>
+        !(i.JenisIzin as string).toLowerCase().includes("sakit") &&
+        !(i.JenisIzin as string).toLowerCase().includes("cuti") &&
+        i.JenisIzin !== "Izin Kedinasan" &&
+        i.JenisIzin !== "Izin Pribadi"
+    ).length;
+  const typeCuti = izinList.filter((i) =>
+    (i.JenisIzin as string).toLowerCase().includes("cuti")
+  ).length;
+
+  const barChartPermitTypes = [
+    {
+      kategori: "Sakit",
+      label: "Izin Sakit",
+      total: typeSakit,
+      fill: "#f59e0b",
+      bgLight: "bg-amber-50 dark:bg-amber-950/30",
+      borderLight: "border-amber-200 dark:border-amber-900/40",
+      textColor: "text-amber-700 dark:text-amber-300",
+      description: "Sakit & Rawat Inap"
+    },
+    {
+      kategori: "Izin",
+      label: "Izin (Dinas/Pribadi)",
+      total: typeIzinCombined,
+      fill: "#0d9488",
+      bgLight: "bg-teal-50 dark:bg-teal-950/30",
+      borderLight: "border-teal-200 dark:border-teal-900/40",
+      textColor: "text-teal-700 dark:text-teal-300",
+      description: "Kedinasan & Pribadi"
+    },
+    {
+      kategori: "Cuti",
+      label: "Cuti Pegawai",
+      total: typeCuti,
+      fill: "#8b5cf6",
+      bgLight: "bg-purple-50 dark:bg-purple-950/30",
+      borderLight: "border-purple-200 dark:border-purple-900/40",
+      textColor: "text-purple-700 dark:text-purple-300",
+      description: "Cuti Tahunan / Alasan Penting"
+    }
+  ];
+
+  // 7-day trend calculation for teacher permits
+  const last7Days = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (6 - i));
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const dayNum = String(d.getDate()).padStart(2, "0");
+    const isoDate = `${year}-${month}-${dayNum}`;
+
+    const dayName = d.toLocaleDateString("id-ID", { weekday: "short" });
+    const shortLabel = `${d.getDate()} ${d.toLocaleDateString("id-ID", { month: "short" })}`;
+    return {
+      isoDate,
+      dayName,
+      shortLabel,
+      fullLabel: `${dayName}, ${d.getDate()} ${d.toLocaleDateString("id-ID", { month: "long", year: "numeric" })}`
+    };
+  });
+
+  const trendData7Days = last7Days.map((day) => {
+    const dayIzins = izinList.filter((i) => {
+      const t = i.Tanggal || i.CreatedAt || "";
+      return t.startsWith(day.isoDate);
+    });
+
+    const sakit = dayIzins.filter((i) => i.JenisIzin === "Izin Sakit").length;
+    const dinas = dayIzins.filter((i) => i.JenisIzin === "Izin Kedinasan").length;
+    const pribadi = dayIzins.filter((i) => i.JenisIzin === "Izin Pribadi").length;
+    const total = dayIzins.length;
+
+    return {
+      tanggal: day.shortLabel,
+      fullDate: day.fullLabel,
+      "Total Izin": total,
+      "Izin Sakit": sakit,
+      "Izin Kedinasan": dinas,
+      "Izin Pribadi": pribadi
+    };
+  });
+
+  const totalIzin7Hari = trendData7Days.reduce((acc, curr) => acc + curr["Total Izin"], 0);
+  const avgIzinPerHari = (totalIzin7Hari / 7).toFixed(1);
 
   // Filtered Log list
   const filteredLogs = logs.filter((log) => {
@@ -421,6 +525,204 @@ export default function AdminDashboard({
 
         {/* Right column: Charts and searchable Live Logs */}
         <div className="lg:col-span-8 space-y-6">
+          {/* Recharts Line Chart: 7-Day Permit Trend */}
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-sm flex items-center space-x-2">
+                    <span>Tren Perizinan Guru (7 Hari Terakhir)</span>
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    Grafik pergerakan jumlah pengajuan izin sakit, kedinasan, dan pribadi
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-2 shrink-0">
+                <div className="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 text-right">
+                  <span className="text-[9px] font-bold text-slate-400 block uppercase font-mono">Total 7 Hari</span>
+                  <span className="text-xs font-black text-slate-900 dark:text-white font-mono">{totalIzin7Hari} Izin</span>
+                </div>
+                <div className="px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-100 dark:border-teal-900/40 text-right">
+                  <span className="text-[9px] font-bold text-teal-600 dark:text-teal-400 block uppercase font-mono">Rata-Rata / Hari</span>
+                  <span className="text-xs font-black text-teal-700 dark:text-teal-300 font-mono">{avgIzinPerHari} Izin</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Recharts Line Chart Container */}
+            <div className="h-64 w-full pt-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={trendData7Days} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                  <XAxis
+                    dataKey="tanggal"
+                    tick={{ fontSize: 11, fill: "#64748b" }}
+                    axisLine={{ stroke: "#cbd5e1" }}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    allowDecimals={false}
+                    tick={{ fontSize: 11, fill: "#64748b" }}
+                    axisLine={{ stroke: "#cbd5e1" }}
+                    tickLine={false}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "#0f172a",
+                      borderColor: "#334155",
+                      borderRadius: "12px",
+                      color: "#fff",
+                      fontSize: "12px",
+                      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)"
+                    }}
+                    labelStyle={{ color: "#94a3b8", fontWeight: "bold", marginBottom: "4px" }}
+                  />
+                  <Legend
+                    wrapperStyle={{ paddingTop: "12px", fontSize: "11px", fontWeight: "600" }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="Total Izin"
+                    stroke="#0d9488"
+                    strokeWidth={3}
+                    activeDot={{ r: 7, strokeWidth: 2, fill: "#14b8a6" }}
+                    dot={{ r: 4, fill: "#0d9488" }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="Izin Sakit"
+                    stroke="#f59e0b"
+                    strokeWidth={2}
+                    strokeDasharray="4 4"
+                    dot={{ r: 3, fill: "#f59e0b" }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="Izin Kedinasan"
+                    stroke="#6366f1"
+                    strokeWidth={2}
+                    strokeDasharray="4 4"
+                    dot={{ r: 3, fill: "#6366f1" }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="Izin Pribadi"
+                    stroke="#ec4899"
+                    strokeWidth={2}
+                    strokeDasharray="4 4"
+                    dot={{ r: 3, fill: "#ec4899" }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Summary Card: Bar Chart Comparison for Permit Categories (Sakit, Izin, Cuti) */}
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                  <BarChart3 className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-sm flex items-center space-x-2">
+                    <span>Ringkasan Total Izin Berdasarkan Jenis</span>
+                    <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-[10px] font-bold">
+                      Bar Chart
+                    </span>
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    Tren perbandingan total pengajuan perizinan (Sakit, Izin, Cuti)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-2 shrink-0">
+                <div className="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 text-right">
+                  <span className="text-[9px] font-bold text-slate-400 block uppercase font-mono">Total Keseluruhan</span>
+                  <span className="text-xs font-black text-slate-900 dark:text-white font-mono">{totalIzins} Permohonan</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Category Metric Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {barChartPermitTypes.map((item) => {
+                const percentage = totalIzins > 0 ? Math.round((item.total / totalIzins) * 100) : 0;
+                return (
+                  <div
+                    key={item.kategori}
+                    className={`p-3.5 rounded-xl border ${item.bgLight} ${item.borderLight} transition-all hover:shadow-xs`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-extrabold uppercase font-mono text-slate-500 dark:text-slate-400">
+                        {item.kategori}
+                      </span>
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${item.textColor} font-mono bg-white/60 dark:bg-slate-800/60`}>
+                        {percentage}%
+                      </span>
+                    </div>
+                    <div className="mt-1 flex items-baseline justify-between">
+                      <span className={`text-2xl font-black ${item.textColor}`}>
+                        {item.total}
+                      </span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                        Izin
+                      </span>
+                    </div>
+                    <p className="text-[9.5px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                      {item.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Recharts Bar Chart */}
+            <div className="h-56 w-full pt-1">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={barChartPermitTypes} margin={{ top: 15, right: 15, left: -20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                  <XAxis
+                    dataKey="kategori"
+                    tick={{ fontSize: 12, fontWeight: "bold", fill: "#64748b" }}
+                    axisLine={{ stroke: "#cbd5e1" }}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    allowDecimals={false}
+                    tick={{ fontSize: 11, fill: "#64748b" }}
+                    axisLine={{ stroke: "#cbd5e1" }}
+                    tickLine={false}
+                  />
+                  <Tooltip
+                    cursor={{ fill: "rgba(226, 232, 240, 0.3)" }}
+                    contentStyle={{
+                      backgroundColor: "#0f172a",
+                      borderColor: "#334155",
+                      borderRadius: "12px",
+                      color: "#fff",
+                      fontSize: "12px",
+                      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)"
+                    }}
+                    formatter={(value: any) => [`${value} Permohonan`, "Total Izin"]}
+                    labelFormatter={(label) => `Kategori Jenis Izin: ${label}`}
+                  />
+                  <Bar dataKey="total" radius={[8, 8, 0, 0]} barSize={52}>
+                    {barChartPermitTypes.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
           {/* visual permit status breakdown */}
           <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
             <h3 className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider mb-4 flex items-center space-x-2">

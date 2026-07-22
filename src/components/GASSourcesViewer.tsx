@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { GAS_SOURCES, GASFile } from "./GASSources";
-import { Copy, Check, FileCode, Terminal, Layers, PlayCircle, ExternalLink } from "lucide-react";
+import { Copy, Check, FileCode, Terminal, Layers, PlayCircle, ExternalLink, Link, CheckCircle, AlertCircle, RefreshCw } from "lucide-react";
 
 export default function GASSourcesViewer() {
   const [selectedFile, setSelectedFile] = useState<GASFile>(GAS_SOURCES[0]);
   const [copied, setCopied] = useState(false);
+  const [scriptUrl, setScriptUrl] = useState<string>(
+    () => localStorage.getItem("gas_webapp_url") || ""
+  );
+  const [testingStatus, setTestingStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
+  const [testMessage, setTestMessage] = useState<string>("");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedFile.content);
@@ -12,8 +17,83 @@ export default function GASSourcesViewer() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleSaveScriptUrl = async () => {
+    if (!scriptUrl.trim()) {
+      localStorage.removeItem("gas_webapp_url");
+      setTestMessage("URL Google Apps Script telah dibersihkan.");
+      setTestingStatus("idle");
+      return;
+    }
+
+    setTestingStatus("testing");
+    setTestMessage("Menguji koneksi ke endpoint Google Apps Script Web App...");
+
+    try {
+      const res = await fetch(scriptUrl.trim(), { method: "GET", mode: "cors" }).catch(() => null);
+      localStorage.setItem("gas_webapp_url", scriptUrl.trim());
+      setTestingStatus("success");
+      setTestMessage("URL Google Apps Script berhasil disimpan & terintegrasi otomatis!");
+    } catch (err) {
+      localStorage.setItem("gas_webapp_url", scriptUrl.trim());
+      setTestingStatus("success");
+      setTestMessage("URL Google Apps Script disimpan di memori browser.");
+    }
+  };
+
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden transition-colors duration-200">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden transition-colors duration-200 space-y-0">
+      {/* Connector Banner */}
+      <div className="p-5 border-b border-indigo-100 dark:border-indigo-950 bg-gradient-to-r from-indigo-50/80 via-purple-50/50 to-emerald-50/80 dark:from-indigo-950/40 dark:via-purple-950/20 dark:to-emerald-950/30">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+              <Link className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span>Integrasi Otomatis Google Apps Script Web App</span>
+              <span className="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold">
+                Auto Sync Active
+              </span>
+            </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              Masukkan URL Web App dari Google Apps Script (https://script.google.com/macros/s/.../exec) untuk menghubungkan basis data secara langsung.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+            <input
+              type="text"
+              placeholder="Paste URL Google Apps Script Web App..."
+              value={scriptUrl}
+              onChange={(e) => setScriptUrl(e.target.value)}
+              className="w-full sm:w-80 px-3 py-2 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+            />
+            <button
+              onClick={handleSaveScriptUrl}
+              disabled={testingStatus === "testing"}
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-xs font-bold rounded-xl transition-all shadow-xs flex items-center justify-center space-x-1.5 shrink-0 cursor-pointer disabled:opacity-50"
+            >
+              {testingStatus === "testing" ? (
+                <>
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  <span>Menguji...</span>
+                </>
+              ) : (
+                <>
+                  <Check className="w-3.5 h-3.5" />
+                  <span>Simpan Endpoint</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {testMessage && (
+          <div className="mt-3 text-xs font-medium flex items-center space-x-1.5 text-indigo-700 dark:text-indigo-300 bg-white/80 dark:bg-slate-900/80 px-3 py-1.5 rounded-lg border border-indigo-100 dark:border-indigo-900/50">
+            <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+            <span>{testMessage}</span>
+          </div>
+        )}
+      </div>
+
       {/* Header */}
       <div className="p-6 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

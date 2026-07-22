@@ -84,6 +84,19 @@ export interface Approval {
   Catatan: string;
 }
 
+export interface Presensi {
+  IdPresensi: string;
+  NIP: string;
+  NamaGuru: string;
+  Unit: string;
+  Tanggal: string; // YYYY-MM-DD
+  WaktuMasuk: string; // HH:mm:ss
+  StatusHadir: "Hadir Tepat Waktu" | "Terlambat" | "Izin" | "Dinas Luar";
+  PetugasPiket: string;
+  Lokasi: string;
+  Catatan?: string;
+}
+
 export interface SimulatedEmail {
   id: string;
   timestamp: string;
@@ -98,4 +111,5 @@ export interface SessionUser {
   nip: string;
   email: string;
   teacher?: Guru;
+  loginMapel?: string | null;
 }

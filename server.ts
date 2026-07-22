@@ -29,6 +29,17 @@ const simulatedEmails: SimulatedEmail[] = [];
 export const app = express();
 const PORT = 3000;
 
+// Enable CORS for Vercel and cross-origin requests
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  next();
+});
+
 // Middleware to parse JSON (with increased limits for base64 file uploads)
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -36,27 +47,24 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 // Serve uploads folder statically
 app.use("/uploads", express.static(UPLOAD_DIR));
 
-async function startServer() {
+// Helper to send email (simulates GmailApp.sendEmail)
+function sendSimulatedEmail(to: string, subject: string, body: string) {
+  const email: SimulatedEmail = {
+    id: "EM-" + Math.random().toString(36).substr(2, 9).toUpperCase(),
+    timestamp: new Date().toISOString(),
+    to,
+    subject,
+    body,
+  };
+  simulatedEmails.unshift(email);
+  console.log(`[SIMULATED GMAIL] Sent to ${to} | Subject: ${subject}`);
+}
 
-  // --- API ROUTES ---
-
-  // Helper to send email (simulates GmailApp.sendEmail)
-  function sendSimulatedEmail(to: string, subject: string, body: string) {
-    const email: SimulatedEmail = {
-      id: "EM-" + Math.random().toString(36).substr(2, 9).toUpperCase(),
-      timestamp: new Date().toISOString(),
-      to,
-      subject,
-      body,
-    };
-    simulatedEmails.unshift(email);
-    console.log(`[SIMULATED GMAIL] Sent to ${to} | Subject: ${subject}`);
-  }
-
-  // Get sent emails
-  app.get("/api/notifications/sent", (req, res) => {
-    res.json(simulatedEmails);
-  });
+// Register all API routes synchronously
+// Get sent emails
+app.get("/api/notifications/sent", (req, res) => {
+  res.json(simulatedEmails);
+});
 
   // Login session
   app.post("/api/auth/login", (req, res) => {
@@ -894,25 +902,26 @@ SANGAT PENTING:
   });
 
   // --- VITE MIDDLEWARE SETUP ---
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
+  async function startServer() {
+    if (process.env.NODE_ENV !== "production") {
+      const vite = await createViteServer({
+        server: { middlewareMode: true },
+        appType: "spa",
+      });
+      app.use(vite.middlewares);
+    } else {
+      const distPath = path.join(process.cwd(), "dist");
+      app.use(express.static(distPath));
+      app.get("*", (req, res) => {
+        res.sendFile(path.join(distPath, "index.html"));
+      });
+    }
+
+    if (!process.env.VERCEL) {
+      app.listen(PORT, "0.0.0.0", () => {
+        console.log(`Server running on http://0.0.0.0:${PORT}`);
+      });
+    }
   }
 
-  if (!process.env.VERCEL) {
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server running on http://0.0.0.0:${PORT}`);
-    });
-  }
-}
-
-startServer();
+  startServer();

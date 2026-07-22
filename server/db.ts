@@ -109,6 +109,19 @@ export interface Approval {
   Catatan: string;
 }
 
+export interface Presensi {
+  IdPresensi: string;
+  NIP: string;
+  NamaGuru: string;
+  Unit: string;
+  Tanggal: string; // YYYY-MM-DD
+  WaktuMasuk: string; // HH:mm:ss
+  StatusHadir: "Hadir Tepat Waktu" | "Terlambat" | "Izin" | "Dinas Luar";
+  PetugasPiket: string;
+  Lokasi: string;
+  Catatan?: string;
+}
+
 // Complete database structure reflecting Google Sheets
 export interface DatabaseSchema {
   DATA_GURU: Guru[];
@@ -120,6 +133,7 @@ export interface DatabaseSchema {
   DATA_LOG: Log[];
   DATA_USER: UserAccount[];
   DATA_APPROVAL: Approval[];
+  DATA_PRESENSI: Presensi[];
 }
 
 const INITIAL_DATABASE: DatabaseSchema = {
@@ -283,6 +297,11 @@ const INITIAL_DATABASE: DatabaseSchema = {
     { IdApproval: "AP-003", IdIzin: "IZ-20260715-001", ApproverRole: "Kepala Bidang Pendidikan", ApproverName: "Dr. KH. Ghozali, M.A.", Status: "Disetujui", TanggalApproval: "2026-07-15T10:00:00.000Z", Catatan: "Semoga lekas sembuh." },
     { IdApproval: "AP-004", IdIzin: "IZ-20260718-001", ApproverRole: "Guru Piket", ApproverName: "Ustadz Anwar Sadad, S.Ag.", Status: "Disetujui", TanggalApproval: "2026-07-17T11:00:00.000Z", Catatan: "Agenda dinas pondok disetujui." },
     { IdApproval: "AP-005", IdIzin: "IZ-20260718-001", ApproverRole: "Waka Kurikulum", ApproverName: "Ustadz H. Abdul Halim, Lc.", Status: "Disetujui", TanggalApproval: "2026-07-17T14:30:00.000Z", Catatan: "Penting untuk pengembangan kurikulum." }
+  ],
+  DATA_PRESENSI: [
+    { IdPresensi: "PRS-20260719-001", NIP: "19800115001", NamaGuru: "Ustadz Ahmad Fauzi, M.Pd.", Unit: "SMA", Tanggal: "2026-07-19", WaktuMasuk: "06:55:12", StatusHadir: "Hadir Tepat Waktu", PetugasPiket: "Ustadz Anwar Sadad, S.Ag.", Lokasi: "Gerbang Utama YPI Al-Ghozali", Catatan: "Discan lewat QR ID" },
+    { IdPresensi: "PRS-20260719-002", NIP: "19850420002", NamaGuru: "Ustadzah Fatimah Azzahra, S.Si.", Unit: "SMP", Tanggal: "2026-07-19", WaktuMasuk: "07:02:40", StatusHadir: "Hadir Tepat Waktu", PetugasPiket: "Ustadz Anwar Sadad, S.Ag.", Lokasi: "Gerbang Utama YPI Al-Ghozali", Catatan: "Discan lewat QR ID" },
+    { IdPresensi: "PRS-20260719-003", NIP: "19900910003", NamaGuru: "Ustadz Ihsan Kamil, Lc.", Unit: "TMMIA", Tanggal: "2026-07-19", WaktuMasuk: "07:22:15", StatusHadir: "Terlambat", PetugasPiket: "Ustadz Anwar Sadad, S.Ag.", Lokasi: "Gerbang Utama YPI Al-Ghozali", Catatan: "Lalin padat di persimpangan" }
   ]
 };
 
