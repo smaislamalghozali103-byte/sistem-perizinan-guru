@@ -49,13 +49,16 @@ class AIHelper:
             )
         except Exception as err:
             err_msg = str(err).lower()
-            if "resource_exhausted" in err_msg or "429" in err_msg or "quota" in err_msg:
-                print(f"Primary model {primary_model} hit quota limit, retrying with fallback model {fallback_model}...")
-                return client.models.generate_content(
-                    model=fallback_model,
-                    contents=contents,
-                    config=config
-                )
+            if any(k in err_msg for k in ["resource_exhausted", "429", "quota", "503", "unavailable"]):
+                print(f"Primary model {primary_model} unavailable or hit quota, retrying with fallback model {fallback_model}...")
+                try:
+                    return client.models.generate_content(
+                        model=fallback_model,
+                        contents=contents,
+                        config=config
+                    )
+                except Exception as fallback_err:
+                    raise Exception(f"Fallback model also failed: {str(fallback_err)}") from err
             raise err
 
     def chat(self, messages: list, mode: str, system_instruction: str):
