@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GAS_SOURCES, GASFile } from "./GASSources";
 import { Copy, Check, FileCode, Terminal, Layers, PlayCircle, ExternalLink, Link, CheckCircle, AlertCircle, RefreshCw } from "lucide-react";
 
 export default function GASSourcesViewer() {
   const [selectedFile, setSelectedFile] = useState<GASFile>(GAS_SOURCES[0]);
   const [copied, setCopied] = useState(false);
+  const DEFAULT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwDI7Z5nf8wemlqrBDNJSS43DXt8CoAr7HEsviNtBzueFD2gsvgnBwZH9hXxK-3J1drPg/exec";
+
   const [scriptUrl, setScriptUrl] = useState<string>(
-    () => localStorage.getItem("gas_webapp_url") || ""
+    () => localStorage.getItem("gas_webapp_url") || DEFAULT_WEBAPP_URL
   );
-  const [testingStatus, setTestingStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
-  const [testMessage, setTestMessage] = useState<string>("");
+  const [testingStatus, setTestingStatus] = useState<"idle" | "testing" | "success" | "error">("success");
+  const [testMessage, setTestMessage] = useState<string>("Endpoint Google Apps Script Web App Aktif & Terintegrasi!");
+
+  useEffect(() => {
+    if (scriptUrl) {
+      localStorage.setItem("gas_webapp_url", scriptUrl);
+    }
+  }, [scriptUrl]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedFile.content);

@@ -86,13 +86,66 @@ function checkLogin(username, password, role) {
  * Database Engine - Google Sheets Integration
  */
 
-var SPREADSHEET_ID = "MASUKKAN_ID_SPREADSHEET_ANDA_DISINI";
+var SPREADSHEET_ID = "1FWO_meYPe8qmQP0O0nEF142ke5J83Rt-O_wt46UGD_A";
 
 function getSpreadsheet() {
-  if (SPREADSHEET_ID === "MASUKKAN_ID_SPREADSHEET_ANDA_DISINI") {
+  if (!SPREADSHEET_ID || SPREADSHEET_ID === "MASUKKAN_ID_SPREADSHEET_ANDA_DISINI") {
     return SpreadsheetApp.getActiveSpreadsheet();
   }
   return SpreadsheetApp.openById(SPREADSHEET_ID);
+}
+
+// Jalankan fungsi ini 1x di Apps Script untuk membuat semua Tab & Kolom di Google Sheet secara otomatis!
+function setupDatabaseAndSheets() {
+  var ss;
+  var SPREADSHEET_ID = "1FWO_meYPe8qmQP0O0nEF142ke5J83Rt-O_wt46UGD_A";
+  
+  if (typeof getSpreadsheet === "function") {
+    ss = getSpreadsheet();
+  } else if (SPREADSHEET_ID && SPREADSHEET_ID !== "MASUKKAN_ID_SPREADSHEET_ANDA_DISINI") {
+    ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  } else {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  }
+  
+  var schemas = {
+    "DATA_GURU": ["NIP", "Nama", "Unit", "NoHP", "Email", "IsPiket", "MataPelajaran"],
+    "DATA_MAPEL": ["KodeMapel", "NamaMapel", "Unit"],
+    "DATA_KELAS": ["KodeKelas", "NamaKelas", "Unit"],
+    "DATA_JADWAL": ["IdJadwal", "NIP", "Hari", "JamKe", "KodeMapel", "KodeKelas"],
+    "DATA_IZIN": ["IdIzin", "Tanggal", "Hari", "NIP", "Unit", "JenisIzin", "Alasan", "Status", "LampiranUrl", "LampiranNama", "CreatedAt"],
+    "DATA_GURU_PENGGANTI": ["IdIzin", "JamKe", "NIPOriginal", "NIPPengganti", "KodeKelas", "KodeMapel", "Materi", "Tugas", "HalamanBuku", "TargetPembelajaran", "Instruksi"],
+    "DATA_LOG": ["IdLog", "Timestamp", "User", "Activity", "Details"],
+    "DATA_USER": ["Username", "PasswordRaw", "NIP", "Role", "Email"],
+    "DATA_APPROVAL": ["IdApproval", "IdIzin", "ApproverRole", "ApproverName", "Status", "TanggalApproval", "Catatan"],
+    "DATA_PRESENSI": ["IdPresensi", "NIP", "NamaGuru", "Unit", "Tanggal", "WaktuMasuk", "StatusHadir", "PetugasPiket", "Lokasi", "Catatan"]
+  };
+
+  for (var sheetName in schemas) {
+    var sheet = ss.getSheetByName(sheetName);
+    if (!sheet) {
+      sheet = ss.insertSheet(sheetName);
+    }
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(schemas[sheetName]);
+      sheet.getRange(1, 1, 1, schemas[sheetName].length).setFontWeight("bold").setBackground("#e2e8f0");
+    }
+  }
+
+  // Isi data default user admin awal jika DATA_USER masih kosong
+  var userSheet = ss.getSheetByName("DATA_USER");
+  if (userSheet.getLastRow() <= 1) {
+    userSheet.appendRow(["Mursyid", "alghozali2026", "19780315007", "Administrator", "mursyid.anwar@alghozali.sch.id"]);
+    userSheet.appendRow(["admin", "ypialghozali2026", "19780315007", "Administrator", "admin@alghozali.sch.id"]);
+    userSheet.appendRow(["ahmad", "ypialghozali2026", "19800115001", "Guru", "ahmad.fauzi@alghozali.sch.id"]);
+    userSheet.appendRow(["fatimah", "ypialghozali2026", "19850420002", "Guru", "fatimah.zahra@alghozali.sch.id"]);
+    userSheet.appendRow(["anwar", "ypialghozali2026", "19920211004", "Guru Piket", "anwar.sadad@alghozali.sch.id"]);
+    userSheet.appendRow(["waka", "ypialghozali2026", "-", "Waka Kurikulum", "waka.kurikulum@alghozali.sch.id"]);
+    userSheet.appendRow(["kabid", "ypialghozali2026", "-", "Kepala Bidang Pendidikan", "kabid.pendidikan@alghozali.sch.id"]);
+  }
+
+  Logger.log("Berhasil membuat seluruh Tab Database di Spreadsheet: " + ss.getName());
+  return "Inisialisasi Database Google Sheets Selesai!";
 }
 
 // Get all data from a table (Sheet) as JSON objects
