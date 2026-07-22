@@ -2162,13 +2162,6 @@
   ],
   "DATA_LOG": [
     {
-      "IdLog": "L-009",
-      "Timestamp": "2026-07-22T05:09:37.659826Z",
-      "User": "Mursyid",
-      "Activity": "Login",
-      "Details": "Berhasil masuk dengan peran Administrator"
-    },
-    {
       "IdLog": "L-008",
       "Timestamp": "2026-07-21T15:05:28.490Z",
       "User": "admin",
