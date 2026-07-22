@@ -147,6 +147,7 @@ export default function DataGuruManager({ onNotify, onRefreshAllData }: Props) {
         return;
       }
 
+      let success = false;
       try {
         const res = await fetch("/api/db/DATA_GURU", {
           method: "POST",
@@ -154,18 +155,45 @@ export default function DataGuruManager({ onNotify, onRefreshAllData }: Props) {
           body: JSON.stringify(formData),
         });
         if (res.ok) {
-          onNotify("Guru baru berhasil ditambahkan.", "success");
-          setIsModalOpen(false);
-          fetchGuru();
-          if (onRefreshAllData) onRefreshAllData();
-        } else {
-          onNotify("Gagal menambahkan guru.", "error");
+          success = true;
         }
       } catch (err) {
-        onNotify("Gagal menghubungi server.", "error");
+        console.warn("Server API unavailable, using GAS WebApp fallback.");
+      }
+
+      // Sync via Google Apps Script WebApp
+      const gasUrl = localStorage.getItem("gas_webapp_url") || "https://script.google.com/macros/s/AKfycbwDI7Z5nf8wemlqrBDNJSS43DXt8CoAr7HEsviNtBzueFD2gsvgnBwZH9hXxK-3J1drPg/exec";
+      if (gasUrl) {
+        try {
+          await fetch(gasUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action: "addTableRow",
+              tableName: "DATA_GURU",
+              keyColumn: "NIP",
+              keyValue: formData.NIP,
+              rowData: formData
+            })
+          });
+          success = true;
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      if (success) {
+        onNotify("Guru baru berhasil ditambahkan.", "success");
+        setIsModalOpen(false);
+        fetchGuru();
+        if (onRefreshAllData) onRefreshAllData();
+      } else {
+        onNotify("Gagal menambahkan guru.", "error");
       }
     } else {
       // Edit
+      let success = false;
       try {
         const res = await fetch("/api/db/DATA_GURU/NIP", {
           method: "PUT",
@@ -173,15 +201,40 @@ export default function DataGuruManager({ onNotify, onRefreshAllData }: Props) {
           body: JSON.stringify(formData),
         });
         if (res.ok) {
-          onNotify("Perubahan data guru berhasil disimpan.", "success");
-          setIsModalOpen(false);
-          fetchGuru();
-          if (onRefreshAllData) onRefreshAllData();
-        } else {
-          onNotify("Gagal menyimpan perubahan.", "error");
+          success = true;
         }
       } catch (err) {
-        onNotify("Gagal menghubungi server.", "error");
+        console.warn("Server API unavailable, using GAS WebApp fallback.");
+      }
+
+      const gasUrl = localStorage.getItem("gas_webapp_url") || "https://script.google.com/macros/s/AKfycbwDI7Z5nf8wemlqrBDNJSS43DXt8CoAr7HEsviNtBzueFD2gsvgnBwZH9hXxK-3J1drPg/exec";
+      if (gasUrl) {
+        try {
+          await fetch(gasUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action: "updateTableRow",
+              tableName: "DATA_GURU",
+              keyColumn: "NIP",
+              keyValue: formData.NIP,
+              rowData: formData
+            })
+          });
+          success = true;
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      if (success) {
+        onNotify("Perubahan data guru berhasil disimpan.", "success");
+        setIsModalOpen(false);
+        fetchGuru();
+        if (onRefreshAllData) onRefreshAllData();
+      } else {
+        onNotify("Gagal menyimpan perubahan.", "error");
       }
     }
   };

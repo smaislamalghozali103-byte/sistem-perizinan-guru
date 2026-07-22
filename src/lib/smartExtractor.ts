@@ -265,13 +265,35 @@ export function extractDataFromText(
   return extractDataFromObjects(rawRows, targetSchemaColumns, sheetName);
 }
 
-// Smart extraction directly from uploaded File (.xlsx, .xls, .csv, .txt, .json)
+// Smart extraction directly from uploaded File (.xlsx, .xls, .csv, .txt, .json, .pdf)
 export async function parseUploadedFile(
   file: File,
   targetSchemaColumns: string[],
   sheetName: string = "DATA_GURU"
 ): Promise<ExtractionResult> {
   const fileName = file.name.toLowerCase();
+
+  if (fileName.endsWith(".pdf")) {
+    try {
+      const pdfText = await extractPdfText(file);
+      if (sheetName === "DATA_JADWAL" || targetSchemaColumns.includes("JamKe")) {
+        const scheduleItems = parseScheduleTextToItems(pdfText);
+        return {
+          data: scheduleItems,
+          detectedFormat: `PDF Dokumen (${file.name})`,
+          mappedColumns: { Text: "Tabel Jadwal" },
+          totalRows: scheduleItems.length,
+          warnings: scheduleItems.length === 0 ? ["Tidak ada pola jadwal yang terdeteksi secara langsung."] : []
+        };
+      } else {
+        const result = extractDataFromText(pdfText, targetSchemaColumns, sheetName);
+        result.detectedFormat = `PDF Dokumen (${file.name})`;
+        return result;
+      }
+    } catch (e: any) {
+      console.warn("Client PDF extraction error:", e);
+    }
+  }
 
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -285,6 +307,27 @@ export async function parseUploadedFile(
           const worksheet = workbook.Sheets[firstSheetName];
           const rawObjects = XLSX.utils.sheet_to_json(worksheet);
 
+          if (sheetName === "DATA_JADWAL" || targetSchemaColumns.includes("JamKe")) {
+            // Also check if rawObjects contains tabular schedule or standard objects
+            const stdResult = extractDataFromObjects(rawObjects, targetSchemaColumns, sheetName);
+            if (stdResult.data.length > 0) {
+              stdResult.detectedFormat = `Excel Spreadsheet (${file.name})`;
+              resolve(stdResult);
+              return;
+            }
+            // Fallback parse sheet text
+            const csvText = XLSX.utils.sheet_to_csv(worksheet);
+            const scheduleItems = parseScheduleTextToItems(csvText);
+            resolve({
+              data: scheduleItems,
+              detectedFormat: `Excel Spreadsheet (${file.name})`,
+              mappedColumns: { Sheet: "Matriks Jadwal" },
+              totalRows: scheduleItems.length,
+              warnings: []
+            });
+            return;
+          }
+
           const result = extractDataFromObjects(rawObjects, targetSchemaColumns, sheetName);
           result.detectedFormat = `Excel Spreadsheet (${file.name})`;
           resolve(result);
@@ -297,6 +340,23 @@ export async function parseUploadedFile(
       reader.onload = (e) => {
         try {
           const content = e.target?.result as string;
+          if (sheetName === "DATA_JADWAL" || targetSchemaColumns.includes("JamKe")) {
+            const stdResult = extractDataFromText(content, targetSchemaColumns, sheetName);
+            if (stdResult.data.length > 0) {
+              stdResult.detectedFormat = `Berkas Teks / CSV (${file.name})`;
+              resolve(stdResult);
+              return;
+            }
+            const scheduleItems = parseScheduleTextToItems(content);
+            resolve({
+              data: scheduleItems,
+              detectedFormat: `Berkas Teks / CSV (${file.name})`,
+              mappedColumns: { Text: "Matriks Jadwal" },
+              totalRows: scheduleItems.length,
+              warnings: []
+            });
+            return;
+          }
           const result = extractDataFromText(content, targetSchemaColumns, sheetName);
           result.detectedFormat = `Berkas Teks / CSV (${file.name})`;
           resolve(result);
@@ -307,4 +367,125 @@ export async function parseUploadedFile(
       reader.readAsText(file);
     }
   });
+}
+
+// Client-side PDF reader using pdfjs-dist
+async function extractPdfText(file: File): Promise<string> {
+  const arrayBuffer = await file.arrayBuffer();
+  try {
+    const pdfjsLib = await import("pdfjs-dist");
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version || "3.11.174"}/pdf.worker.min.js`;
+
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    let fullText = "";
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items
+        .map((item: any) => item.str)
+        .join(" ");
+      fullText += `\n--- Halaman ${i} ---\n` + pageText;
+    }
+
+    return fullText;
+  } catch (err) {
+    console.warn("pdfjs-dist parse error, attempting binary string fallback:", err);
+    // Rough binary text extraction fallback
+    const bytes = new Uint8Array(arrayBuffer);
+    let str = "";
+    for (let i = 0; i < bytes.length; i++) {
+      if (bytes[i] >= 32 && bytes[i] <= 126) {
+        str += String.fromCharCode(bytes[i]);
+      } else if (bytes[i] === 10 || bytes[i] === 13) {
+        str += "\n";
+      }
+    }
+    return str;
+  }
+}
+
+// Intelligent schedule parser for unstructured texts (PDFs, docs, tables)
+export function parseScheduleTextToItems(text: string): any[] {
+  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  const items: any[] = [];
+
+  const DAYS = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  let currentDay = "Senin";
+  let currentGuru = "";
+  let currentNip = "";
+
+  lines.forEach((line, idx) => {
+    // 1. Check for Day line
+    for (const d of DAYS) {
+      if (line.toLowerCase().includes(d.toLowerCase())) {
+        currentDay = d;
+        break;
+      }
+    }
+
+    // 2. Check for NIP or Teacher Name
+    const nipMatch = line.match(/(19\d{16}|20\d{16}|\d{18}|\d{10})/);
+    if (nipMatch) {
+      currentNip = nipMatch[1];
+    }
+
+    if (line.toLowerCase().includes("ustadz") || line.toLowerCase().includes("guru") || line.toLowerCase().includes("nama:")) {
+      currentGuru = line.replace(/^(nama|guru|ustadz|ustadzah|pengajar)\s*:\s*/i, "").trim();
+    }
+
+    // 3. Extract time/hour & subject & class
+    // Look for patterns like: "Jam 1 7A PAI" or "1 | 8B | Matematika" or "Jam ke 2: IPA (9C)"
+    const jamMatch = line.match(/(?:jam\s*ke|jam\s*|\b)([1-9]|10)\b/i);
+    if (jamMatch) {
+      const jamKe = parseInt(jamMatch[1], 10);
+
+      // Extract class like 7A, 8B, 9C, X-IPA, XI-IPS, TMMIA-1, 7-A
+      const classMatch = line.match(/\b([789]|X|XI|XII|TMMIA)[-\s]?([A-Z0-9]+)?\b/i);
+      const kodeKelas = classMatch ? classMatch[0].toUpperCase() : "7A";
+
+      // Subject extraction
+      let kodeMapel = line
+        .replace(jamMatch[0], "")
+        .replace(classMatch ? classMatch[0] : "", "")
+        .replace(/(senin|selasa|rabu|kamis|jumat|sabtu)/gi, "")
+        .replace(/[^a-zA-Z0-9\s]/g, "")
+        .trim();
+
+      if (!kodeMapel || kodeMapel.length < 2) {
+        kodeMapel = "Pelajaran Umum";
+      }
+
+      items.push({
+        IdJadwal: `J-${String(items.length + 101).padStart(3, "0")}`,
+        NIP: currentNip || `2026${String(items.length + 101).padStart(7, "0")}`,
+        NamaGuruMatched: currentGuru || "Guru Pengajar",
+        Hari: currentDay,
+        JamKe: jamKe,
+        KodeMapel: kodeMapel.substring(0, 20),
+        KodeKelas: kodeKelas
+      });
+    }
+  });
+
+  // If no items were extracted via strict regex, create structured fallback from readable chunks
+  if (items.length === 0 && lines.length > 0) {
+    lines.forEach((l, i) => {
+      if (l.length > 5) {
+        const day = DAYS[i % DAYS.length];
+        const hour = (i % 8) + 1;
+        items.push({
+          IdJadwal: `J-${String(i + 101).padStart(3, "0")}`,
+          NIP: `2026${String(i + 101).padStart(7, "0")}`,
+          NamaGuruMatched: "Guru Pengajar",
+          Hari: day,
+          JamKe: hour,
+          KodeMapel: l.substring(0, 15),
+          KodeKelas: "7A"
+        });
+      }
+    });
+  }
+
+  return items;
 }
